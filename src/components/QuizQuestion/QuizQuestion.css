@@ -1,0 +1,32 @@
+.QuizQuestion {
+
+}
+
+.QuizQuestion__question p {
+    font-size: 2rem;
+}
+
+.QuizQuestion__question code {
+    color: #1b2733;
+    background-color: #f7f9fa;
+    border-color: #e6e8eb;
+    font-family: SourceCodePro,monospace;
+}
+
+.QuizQuestion__code-figure {
+    border: 1px solid #e6e8eb;
+    background-color: #f7f9fa;
+}
+
+.QuizQuestion__code-figure > pre {
+    margin: 0;
+}
+
+.QuizQuestion__code-figure .hljs {
+    background-color: transparent;
+    padding: 20px 15px;
+}
+
+.QuizQuestion__answers-list {
+
+}
