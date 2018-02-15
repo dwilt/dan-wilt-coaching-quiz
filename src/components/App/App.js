@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 
 import {
-    AssessmentQuiz
+    Quiz
 } from 'components';
 
 class App extends Component {
     render() {
         return (
             <div className={`App`}>
-                <AssessmentQuiz/>
+                <Quiz />
             </div>
         );
     }

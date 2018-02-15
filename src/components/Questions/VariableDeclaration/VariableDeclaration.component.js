@@ -45,18 +45,17 @@ const answers = [
     },
 ];
 
+const incorrectFeedback = `This is a basic question. If this wasn't a mistake input, you need to learn the fundamentals of Javascript.`;
 
-export default class VariableDeclarationQuestion extends PureComponent {
-    static propTypes = {};
 
+export default class VariableDeclaration extends PureComponent {
     render() {
-        const {} = this.props;
-
         return (
             <QuizQuestion
                 codeFigure={codeFigure}
                 question={question}
                 answers={answers}
+                incorrectFeedback={incorrectFeedback}
             />
         );
     }
