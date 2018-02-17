@@ -6,7 +6,7 @@ import { reduxFirestore, firestoreReducer } from "redux-firestore";
 
 import firebase from "firebase";
 
-import 'firebase/firestore';
+import "firebase/firestore";
 
 // react-redux-firebase config
 const rrfConfig = {
@@ -34,4 +34,8 @@ const rootReducer = combineReducers({
     firestore: firestoreReducer, // <- needed if using firestore
 });
 
-export default createStoreWithFirebase(rootReducer, {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default createStoreWithFirebase(
+    rootReducer,
+    {},
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
