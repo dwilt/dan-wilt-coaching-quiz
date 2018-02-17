@@ -3,11 +3,13 @@
   "description": "Cloud Functions for Firebase",
   "scripts": {
     "lint": "eslint . --fix",
+    "pretty": "prettier --write \"**/*.js\"",
+    "format": "npm run pretty; npm run lint",
     "compile-to-es5": "rm -rf ../functions; babel . --out-dir ../functions --copy-files --ignore node_modules",
     "serve": "firebase serve --only functions",
     "shell": "firebase experimental:functions:shell",
     "start": "npm run shell",
-    "deploy": "npm run lint; npm run compile-to-es5; firebase deploy --only functions",
+    "deploy": "npm run format; npm run compile-to-es5; firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
   "dependencies": {
