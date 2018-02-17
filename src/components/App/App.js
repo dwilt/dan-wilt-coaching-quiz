@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import {
-    Quiz
+    Quiz,
 } from 'components';
 
 class App extends Component {

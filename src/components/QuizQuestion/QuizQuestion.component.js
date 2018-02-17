@@ -23,7 +23,7 @@ export default class QuizQuestion extends PureComponent {
     };
 
     render() {
-        const { codeFigure, question, answers, incorrectFeedback } = this.props;
+        const { codeFigure, question, answers } = this.props;
 
         return (
             <div className={`QuizQuestion`}>
