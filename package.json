@@ -21,10 +21,11 @@
     "build": "NODE_PATH=src react-scripts build",
     "test": "NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "NODE_PATH=src react-scripts eject",
-    "format": "prettier-eslint --write \"src/**/*.js\" --eslint-config-path .eslintrc --single-quote --arrow-parens always",
+    "pretty": "prettier --write \"src/**/*.js\"",
+    "lint": "eslint src --fix",
+    "format": "npm run pretty; npm run lint",
     "sync-questions": "curl -X POST https://us-central1-dan-wilt-coaching-assessmen.cloudfunctions.net/createQuestions -H \"Content-Type: application/json\" -d @./questions.json",
-    "deploy-firebase-functions": "cd firebaseFunctions; npm run deploy",
-    "lint": "eslint src --fix"
+    "deploy-firebase-functions": "cd firebaseFunctions; npm run deploy"
   },
   "devDependencies": {
     "babel": "^6.23.0",

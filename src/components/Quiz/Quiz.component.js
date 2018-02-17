@@ -4,8 +4,6 @@ import './Quiz.css';
 
 export default class Quiz extends PureComponent {
     render() {
-        return (
-            <div className={`Quiz`} />
-        );
+        return <div className={`Quiz`} />;
     }
 }
