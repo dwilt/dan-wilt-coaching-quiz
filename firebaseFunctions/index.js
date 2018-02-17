@@ -10,6 +10,6 @@ exports.createQuestions = functions.https.onRequest(
 
     await Promise.all(questions.map((question) => createQuestion(question)));
 
-    response.send(`success!`);
+    response.send(`Questions updated!`);
   }
 );
