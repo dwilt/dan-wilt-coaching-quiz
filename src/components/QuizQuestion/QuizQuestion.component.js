@@ -1,16 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from "react";
 
-import Highlight from 'react-highlight';
+import Highlight from "react-highlight";
 
-import Markdown from 'react-remarkable';
+import Markdown from "react-remarkable";
 
-import { QuestionAnswer } from 'components';
+import { QuestionAnswer } from "components";
 
-import 'highlight.js/styles/github-gist.css';
+import "highlight.js/styles/github-gist.css";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import './QuizQuestion.css';
+import "./QuizQuestion.css";
 
 export default class QuizQuestion extends PureComponent {
   static propTypes = {

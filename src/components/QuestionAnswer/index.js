@@ -1,1 +1,1 @@
-export { default as QuestionAnswer } from './QuestionAnswer.component';
+export { default as QuestionAnswer } from "./QuestionAnswer.component";

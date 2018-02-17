@@ -1,1 +1,1 @@
-export { default as Quiz } from './Quiz.component';
+export { default as Quiz } from "./Quiz.container";

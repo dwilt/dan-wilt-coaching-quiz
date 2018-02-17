@@ -3,7 +3,7 @@
     "id": "basic-variable",
     "question": "Select the answer below that would set a variable named `myVariable` to `3`",
     "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
-    "codeFigure":"var name = \"Bill\";\n\nfunction caller(func){\n  var myObject = {\n  name: \"Joe\"\n};\n\n  return func(myObject);\n}\n\n  function callee(param) {\n  return param.name\n}\n\n  var c = caller(callee);",
+    "codeFigure":"var name = \"Bill\";\n\nfunction caller(func){\n  var myObject = {\n  name: \"Joe\"\n};\n\n  return func(myObject);\n}\n\n  function callee(param) {\n  return param.name\n}\n\nvar c = caller(callee);",
     "answers": [
       {
         "type": "code",
@@ -21,6 +21,7 @@
         "type": "code",
         "text": "var myVariable = {\n    3\n}"
       }
-    ]
+    ],
+    "correctAnswer": 1
   }
 ]

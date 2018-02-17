@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from "react";
 
-import Highlight from 'react-highlight';
+import Highlight from "react-highlight";
 
-import Markdown from 'react-remarkable';
+import Markdown from "react-remarkable";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import './QuestionAnswer.css';
+import "./QuestionAnswer.css";
 
 export default class QuestionAnswer extends PureComponent {
   static propTypes = {
