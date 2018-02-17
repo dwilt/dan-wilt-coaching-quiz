@@ -2,20 +2,14 @@ const functions = require(`firebase-functions`);
 
 import { deleteAllQuestions, createQuestion } from './firestore';
 
-exports.createQuestions = functions.https.onRequest((request, response) => {
-  const questions = request.body;
+exports.createQuestions = functions.https.onRequest(
+  async (request, response) => {
+    const questions = request.body;
 
-  deleteAllQuestions(questions)
-    .then(() =>
-      Promise.all(questions.map((question) => createQuestion(question))).then(
-        () => {
-          response.send(`Success!`);
+    await deleteAllQuestions(questions);
 
-          return true;
-        }
-      )
-    )
-    .catch((err) => {
-      console.log(err);
-    });
-});
+    await Promise.all(questions.map((question) => createQuestion(question)));
+
+    response.send(`success!`);
+  }
+);
