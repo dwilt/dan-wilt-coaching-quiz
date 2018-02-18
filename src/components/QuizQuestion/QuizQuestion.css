@@ -6,13 +6,6 @@
     font-size: 2rem;
 }
 
-.QuizQuestion__question code {
-    color: #1b2733;
-    background-color: #f7f9fa;
-    border-color: #e6e8eb;
-    font-family: SourceCodePro,monospace;
-}
-
 .QuizQuestion__code-figure {
     border: 1px solid #e6e8eb;
     background-color: #f7f9fa;

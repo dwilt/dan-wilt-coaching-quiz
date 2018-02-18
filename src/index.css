@@ -36,3 +36,10 @@ pre > .hljs {
     flex: 1;
     display: flex;
 }
+
+code {
+    color: #1b2733;
+    background-color: #f7f9fa;
+    border-color: #e6e8eb;
+    font-family: SourceCodePro,monospace;
+}

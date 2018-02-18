@@ -1,99 +1,249 @@
 {
-  "version": "1",
-  "questions": [
-    {
-      "id": "basic-variable",
-      "question": "Select the answer below that would set a variable named `myVariable` to `3`:",
-      "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
-      "answers": [
+    "version": "1",
+    "questions": [
         {
-          "type": "code",
-          "text": "myVariable(3)"
+            "id": "basic-variable",
+            "question": "Select the answer below that would set a variable named `myVariable` to `3`:",
+            "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
+            "answers": [
+                {
+                    "type": "code",
+                    "text": "myVariable(3)"
+                },
+                {
+                    "type": "code",
+                    "text": "var myVariable = 3;"
+                },
+                {
+                    "type": "code",
+                    "text": "var myVariable[3]"
+                },
+                {
+                    "type": "code",
+                    "text": "var myVariable = {\n    3\n}"
+                }
+            ],
+            "correctAnswer": 1
         },
         {
-          "type": "code",
-          "text": "var myVariable = 3;"
+            "id": "null-vs-undefined",
+            "question": "What is the difference between `null` and `undefined`?",
+            "incorrectFeedback": "There are a surprising number of developers who don't know this. Burn the difference into memory because it's extremely important to understand.",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`null` is a blank value that has to be assigned where `undefined` is assigned to any variable/property which hasn't been given a value"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`null` is equivalent to `0` where `undefined` is a falsey value of `0`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`null` is equivalent to `false` when comparing objects and `undefined` is equivalent to `false` when comparing numbers"
+                },
+                {
+                    "type": "markdown",
+                    "text": "There is no difference"
+                }
+            ],
+            "correctAnswer": 0
         },
         {
-          "type": "code",
-          "text": "var myVariable[3]"
+            "id": "variable-pointers",
+            "question": "What does `y` equal and why?",
+            "incorrectFeedback": "This is another thing that trips up developers. The key to remember here is that variables are just *pointers*. When `x` gets set to `3`, `y` is still pointing at the *value* of `x` - not `x` itself.",
+            "codeFigure": "var x = 4;\nvar y = x;\nx = 3;",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`3`: Because `y` is a reference to `x` and `x` is `3`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`undefined`: Because `y` was set to `x` but then `x` changed so now `y` is a dead reference"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`4`: Because `y` was set to the value of `x`, not `x` itself"
+                }
+            ],
+            "correctAnswer": 2
         },
         {
-          "type": "code",
-          "text": "var myVariable = {\n    3\n}"
+            "id": "invoke-function",
+            "question": "Invoke/call the function:",
+            "incorrectFeedback": "This is another basic question that you should be able to answer if you're going to be doing Javascript development.",
+            "codeFigure": "function myFunction(){\n\n}",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`(myFunction)`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myFunction||`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myFunction()`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`|myFunction|`"
+                }
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "function-variable-reference",
+            "question": "What is `a` equal to shown below?",
+            "incorrectFeedback": "It's a common pattern in JS to set variables to functions or other objects. Always keep an eye out to make sure the function isn't being invoked. Every character is important.",
+            "codeFigure": "function myFunction(){\n  var x = 5;\n\n  return 3 + x;\n}\n\nvar a = myFunction;",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`error`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myFunction`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`undefined`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`8`"
+                }
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "function-return-value",
+            "question": "What is `b` equal to shown below?",
+            "incorrectFeedback": "Being able to read what the return value of a function is something you should definitely have down pat. Practice writing some basic functions that return simple values - like a number or string.",
+            "codeFigure": "var r = 5;\n\nfunction anotherFunction(){\n  return 3 * r;\n}\n\nvar b = anotherFunction();",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`15`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`error`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`undefined`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`3`"
+                }
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "functions-returning-functions",
+            "question": "What is `c` equal to shown below?",
+            "incorrectFeedback": "This is a bit tougher. It can take a bit to read these kind of statements. The way to do it is to work backwards from where the first function is invoked. In this case, start at `caller(callee)` and break down what each function does starting from the outside (`caller`) and working your way inside (`callee`).",
+            "codeFigure": "var name = \"Bill\";\n\nfunction caller(func){\n  var myObject = {\n    name: \"Joe\"\n  };\n\n  return func(myObject);\n}\n\nfunction callee(param) {\n  return param.name\n}\n\nvar c = caller(callee);",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`Bill`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`caller`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myObject`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`Joe`"
+                }
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": "complicated-math-and-closures",
+            "question": "What is `d` equal to shown below?",
+            "incorrectFeedback": "This is even tougher than the previous one but the concept here is the same. Find where the top level function is invoked and work you're way inward.",
+            "codeFigure": "function caller(f){\n  var x = 3;\n\n  return f(5)(x);\n}\n\nvar d = caller(function(w){\n  var x = 4;\n\n  return function(y) {\n    return x * y + w;\n  };\n});",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`undefined`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`19`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`23`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`17`"
+                }
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": "invoking-with-this",
+            "question": "Given this were running in the browser, what would `e` be equal to shown below?",
+            "incorrectFeedback": "Understanding `this` is a fundamental piece of Javascript. Check out [this article](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/) for a thorough explanation.",
+            "codeFigure": "var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method();",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`undefined`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`window`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myObject`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`error`"
+                }
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "window-anonymous-functions",
+            "question": "Given this were running in the browser, what would `e` be equal to shown below?",
+            "incorrectFeedback": "All anonymous functions belong to the global object (in the browser, that's `Window`). What determines a functions `this` (aka \"function context\"), is how it's *invoked*.",
+            "codeFigure": "var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method;\nvar e = x();",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`undefined`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`window`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`myObject`"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`error`"
+                }
+            ],
+            "correctAnswer": 1
         }
-      ],
-      "correctAnswer": 1
-    },
-    {
-      "id": "null-vs-undefined",
-      "question": "What is the difference between `null` and `undefined`?",
-      "incorrectFeedback": "There are a surprising number of developers who don't know this. Burn the difference into memory because it's extremely important to understand.",
-      "answers": [
-        {
-          "type": "markdown",
-          "text": "`null` is a blank value that has to be assigned where `undefined` is assigned to any variable/property which hasn't been given a value"
-        },
-        {
-          "type": "markdown",
-          "text": "`null` is equivalent to `0` where `undefined` is a falsey value of `0`"
-        },
-        {
-          "type": "markdown",
-          "text": "`null` is equivalent to `false` when comparing objects and `undefined` is equivalent to `false` when comparing numbers"
-        },
-        {
-          "type": "markdown",
-          "text": "There is no difference"
-        }
-      ],
-      "correctAnswer": 0
-    },
-    {
-      "id": "variable-pointers",
-      "question": "What does `y` equal and why?",
-      "incorrectFeedback": "This is another thing that trips up developers. The key to remember here is that variables are just *pointers*. When `x` gets set to `3`, `y` is still pointing at the *value* of `x` - not `x` itself.",
-      "codeFigure":"var x = 4;\nvar y = x;\nx = 3;",
-      "answers": [
-        {
-          "type": "markdown",
-          "text": "`3`: Because `y` is a reference to `x` and `x` is `3`"
-        },
-        {
-          "type": "markdown",
-          "text": "`undefined`: Because `y` was set to `x` but then `x` changed so now `y` is a dead reference"
-        },
-        {
-          "type": "markdown",
-          "text": "`4`: Because `y` was set to the value of `x`, not `x` itself"
-        }
-      ],
-      "correctAnswer": 2
-    },
-    {
-      "id": "invoke-function",
-      "question": "Invoke/call the function:",
-      "incorrectFeedback": "This is another basic question that you should be able to answer if you're going to be doing Javascript development.",
-      "codeFigure":"function myFunction(){\n\n}",
-      "answers": [
-        {
-          "type": "markdown",
-          "text": "`(myFunction)`"
-        },
-        {
-          "type": "markdown",
-          "text": "`myFunction||`"
-        },
-        {
-          "type": "markdown",
-          "text": "`myFunction()`"
-        },
-        {
-          "type": "markdown",
-          "text": "`|myFunction|`"
-        }
-      ],
-      "correctAnswer": 2
-    }
-  ]
+    ]
 }
