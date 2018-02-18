@@ -1,3 +1,4 @@
 {
-  "arrow-parens": "always"
+  "arrow-parens": "always",
+  "tabWidth": 4
 }

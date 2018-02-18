@@ -1,27 +1,99 @@
-[
-  {
-    "id": "basic-variable",
-    "question": "Select the answer below that would set a variable named `myVariable` to `3`",
-    "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
-    "codeFigure":"var name = \"Bill\";\n\nfunction caller(func){\n  var myObject = {\n  name: \"Joe\"\n};\n\n  return func(myObject);\n}\n\n  function callee(param) {\n  return param.name\n}\n\nvar c = caller(callee);",
-    "answers": [
-      {
-        "type": "code",
-        "text": "myVariable(3)"
-      },
-      {
-        "type": "code",
-        "text": "var myVariable = 3;"
-      },
-      {
-        "type": "code",
-        "text": "var myVariable[3]"
-      },
-      {
-        "type": "code",
-        "text": "var myVariable = {\n    3\n}"
-      }
-    ],
-    "correctAnswer": 1
-  }
-]
+{
+  "version": "1",
+  "questions": [
+    {
+      "id": "basic-variable",
+      "question": "Select the answer below that would set a variable named `myVariable` to `3`:",
+      "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
+      "answers": [
+        {
+          "type": "code",
+          "text": "myVariable(3)"
+        },
+        {
+          "type": "code",
+          "text": "var myVariable = 3;"
+        },
+        {
+          "type": "code",
+          "text": "var myVariable[3]"
+        },
+        {
+          "type": "code",
+          "text": "var myVariable = {\n    3\n}"
+        }
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "id": "null-vs-undefined",
+      "question": "What is the difference between `null` and `undefined`?",
+      "incorrectFeedback": "There are a surprising number of developers who don't know this. Burn the difference into memory because it's extremely important to understand.",
+      "answers": [
+        {
+          "type": "markdown",
+          "text": "`null` is a blank value that has to be assigned where `undefined` is assigned to any variable/property which hasn't been given a value"
+        },
+        {
+          "type": "markdown",
+          "text": "`null` is equivalent to `0` where `undefined` is a falsey value of `0`"
+        },
+        {
+          "type": "markdown",
+          "text": "`null` is equivalent to `false` when comparing objects and `undefined` is equivalent to `false` when comparing numbers"
+        },
+        {
+          "type": "markdown",
+          "text": "There is no difference"
+        }
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": "variable-pointers",
+      "question": "What does `y` equal and why?",
+      "incorrectFeedback": "This is another thing that trips up developers. The key to remember here is that variables are just *pointers*. When `x` gets set to `3`, `y` is still pointing at the *value* of `x` - not `x` itself.",
+      "codeFigure":"var x = 4;\nvar y = x;\nx = 3;",
+      "answers": [
+        {
+          "type": "markdown",
+          "text": "`3`: Because `y` is a reference to `x` and `x` is `3`"
+        },
+        {
+          "type": "markdown",
+          "text": "`undefined`: Because `y` was set to `x` but then `x` changed so now `y` is a dead reference"
+        },
+        {
+          "type": "markdown",
+          "text": "`4`: Because `y` was set to the value of `x`, not `x` itself"
+        }
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "id": "invoke-function",
+      "question": "Invoke/call the function:",
+      "incorrectFeedback": "This is another basic question that you should be able to answer if you're going to be doing Javascript development.",
+      "codeFigure":"function myFunction(){\n\n}",
+      "answers": [
+        {
+          "type": "markdown",
+          "text": "`(myFunction)`"
+        },
+        {
+          "type": "markdown",
+          "text": "`myFunction||`"
+        },
+        {
+          "type": "markdown",
+          "text": "`myFunction()`"
+        },
+        {
+          "type": "markdown",
+          "text": "`|myFunction|`"
+        }
+      ],
+      "correctAnswer": 2
+    }
+  ]
+}

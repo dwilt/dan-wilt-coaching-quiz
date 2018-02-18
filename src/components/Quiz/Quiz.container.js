@@ -7,8 +7,9 @@ import { firestoreConnect } from "react-redux-firebase";
 import Quiz from "./Quiz.component";
 
 export default compose(
-    firestoreConnect([`questions`]),
+    firestoreConnect([`questions/1`]),
     connect((state) => ({
-        questions: state.firestore.data.questions,
+        questions:
+            state.firestore.data.questions && state.firestore.data.questions[1],
     }))
 )(Quiz);
