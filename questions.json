@@ -223,7 +223,7 @@
         {
             "id": "window-anonymous-functions",
             "question": "Given this were running in the browser, what would `e` be equal to shown below?",
-            "incorrectFeedback": "All anonymous functions belong to the global object (in the browser, that's `Window`). What determines a functions `this` (aka \"function context\"), is how it's *invoked*.",
+            "incorrectFeedback": "All anonymous functions belong to the global object (in the browser, that's `window`). What determines a functions `this` (aka \"function context\"), is how it's *invoked*.",
             "codeFigure": "var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method;\nvar e = x();",
             "answers": [
                 {
@@ -244,6 +244,144 @@
                 }
             ],
             "correctAnswer": 1
+        },
+        {
+            "id": "function-call-instantiation",
+            "question": "Which answer below creates a new instance of `Person` with an `age` property, a `name` of `Dan`, and assigns that instance to a variable called `dan`?",
+            "incorrectFeedback": "A common pattern, before ES6 `class`es, we're to pass objects into a function and assign those props.",
+            "codeFigure": "function Person(props){\n  for(var prop in props) {\n    this[prop] = props[prop];\n  }\n}",
+            "answers": [
+                {
+                    "type": "code",
+                    "text": "var dan = Person(\n  age: 24,\n  name: 'Dan'\n);"
+                },
+                {
+                    "type": "code",
+                    "text": "var dan = new Person({\n  age: 24,\n  name: 'Dan'\n});"
+                },
+                {
+                    "type": "code",
+                    "text": "var dan = new Person({\n  24,\n  'Dan'\n});"
+                },
+                {
+                    "type": "code",
+                    "text": "var dan = Person({\n  age: 24,\n  name: 'Dan'\n});"
+                }
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "id": "var-vs-let-vs-const",
+            "question": "What is the difference between `var`, `let`, and `const`",
+            "incorrectFeedback": "This is new syntax for ES6 and is good to know. Read more about it [here](http://wesbos.com/let-vs-const/)",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`let` is the newer equivalent of `var` where `const` is used when you want to instantiate a `new` constructor function"
+                },
+                {
+                    "type": "markdown",
+                    "text": "Both `let` and `const` are values that cannot change where `var` can change but let is only used for numbers, strings and object variables"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`let` and `const` are only meant to be used in functions. `const` values cannot be changed however. `var` is now used for global variables"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`let` and `const` are both block-scoped variables except that `const` cannot be changed and both are newer replacements for `var`"
+                }
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "id": "destructuring-basic",
+            "question": "Which answer below is an example of two `const` variables called `name` and `age` that were created by destructuring `myObject`?",
+            "incorrectFeedback": "Destructuring is a really handy feature of ES6 (the latest version of Javascript). Read more about it [here](http://wesbos.com/destructuring-objects/).",
+            "codeFigure": "const myObject = {\n  age: 31,\n  name: \"Dan\"\n}",
+            "answers": [
+                {
+                    "type": "code",
+                    "text": "const { age, name } = myObject;"
+                },
+                {
+                    "type": "code",
+                    "text": "const age = myObject[age];\nconst name = myObject[name];"
+                },
+                {
+                    "type": "code",
+                    "text": "const age, name = myObject;"
+                },
+                {
+                    "type": "code",
+                    "text": "const age, name = myObject;"
+                },
+                {
+                    "type": "code",
+                    "text": "const myObject[age], myObject[name];"
+                }
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "import-export-basic",
+            "question": "What are `import` and `export` used for?",
+            "incorrectFeedback": "These are absolutely critical pieces of the new ES6 syntax that you should know. The MDN site has great documents explaining both [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`import` is used for passing variables into a function where `export` is used for passing variables out of a function"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`import` and `export` are both used when you want to handle different languages in your application"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`import` and `export` are used to keep your modules (functions, classes, etc.) in separate files"
+                }
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "id": "class-definition",
+            "question": "What is a `class`?",
+            "incorrectFeedback": "These are absolutely critical pieces of the new ES6 syntax that you should know. The MDN site has great documents explaining both [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`class` is the newer form of a constructor function in ES6"
+                },
+                {
+                    "type": "markdown",
+                    "text": "A `class` can be used when you want to have an object that is immutable and only houses functions"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`class` is similar to object but in ES6, can be used to house more advanced data types like `async` and `yield`"
+                }
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "id": "generator-function",
+            "question": "What is a `class`?",
+            "incorrectFeedback": "ES6 actually didn't introduce anything too fundamentally changing to the language. More \"syntax sugar\". Since a `class` is the future of OOP in Javascript, understanding how it works under the hood is key. There's a great article about them [here](https://css-tricks.com/understanding-javascript-constructors/).",
+            "answers": [
+                {
+                    "type": "markdown",
+                    "text": "`class` is the newer form of a constructor function in ES6"
+                },
+                {
+                    "type": "markdown",
+                    "text": "A `class` can be used when you want to have an object that is immutable and only houses functions"
+                },
+                {
+                    "type": "markdown",
+                    "text": "`class` is similar to object but in ES6, can be used to house more advanced data types like `async` and `yield`"
+                }
+            ],
+            "correctAnswer": 0
         }
     ]
 }
