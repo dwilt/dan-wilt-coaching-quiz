@@ -19,10 +19,11 @@ export default class QuizQuestion extends PureComponent {
         question: PropTypes.string.isRequired,
         answers: PropTypes.array.isRequired,
         incorrectFeedback: PropTypes.node,
+        onSubmit: PropTypes.func.isRequired,
     };
 
     render() {
-        const { codeFigure, question, answers } = this.props;
+        const { codeFigure, question, answers, id } = this.props;
 
         return (
             <form className={`QuizQuestion`}>
@@ -37,13 +38,11 @@ export default class QuizQuestion extends PureComponent {
                     <Markdown>{question}</Markdown>
                 </div>
                 <ol className={`QuizQuestion__answers-list`}>
-                    {answers.map((answer = {}, i) => {
-                        return (
-                            <li key={i}>
-                                <QuestionAnswer {...answer} />
-                            </li>
-                        );
-                    })}
+                    {answers.map((answer = {}, i) => (
+                        <li key={i}>
+                            <QuestionAnswer questionId={id} {...answer} questionNumber={i} />
+                        </li>
+                    ))}
                 </ol>
             </form>
         );
