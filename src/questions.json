@@ -7,23 +7,20 @@
             "incorrectFeedback": "This a very basic question and if this answer wasn't on accident, the rest of the quiz is probably going to be very difficult. Start by reading up on the [fundamentals of Javascript](https://www.w3schools.com/js/)",
             "answers": [
                 {
-                    "type": "code",
-                    "text": "myVariable(3)"
+                    "text": "`myVariable(3)`"
                 },
                 {
-                    "type": "code",
-                    "text": "var myVariable = 3;"
+                    "text": "`var myVariable = 3;`"
                 },
                 {
-                    "type": "code",
-                    "text": "var myVariable[3]"
+                    "text": "`var myVariable[3]`"
                 },
                 {
-                    "type": "code",
-                    "text": "var myVariable = {\n    3\n}"
+                    "text": "`var myVariable = {\n    3\n}`"
                 }
             ],
-            "correctAnswer": 1
+            "answerType": "code",
+            "correctAnswer": 2
         },
         {
             "id": "null-vs-undefined",
@@ -31,23 +28,20 @@
             "incorrectFeedback": "There are a surprising number of developers who don't know this. Burn the difference into memory because it's extremely important to understand.",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`null` is a blank value that has to be assigned where `undefined` is assigned to any variable/property which hasn't been given a value"
                 },
                 {
-                    "type": "markdown",
                     "text": "`null` is equivalent to `0` where `undefined` is a falsey value of `0`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`null` is equivalent to `false` when comparing objects and `undefined` is equivalent to `false` when comparing numbers"
                 },
                 {
-                    "type": "markdown",
                     "text": "There is no difference"
                 }
             ],
-            "correctAnswer": 0
+            "answerType": "markdown",
+            "correctAnswer": 1
         },
         {
             "id": "variable-pointers",
@@ -56,19 +50,17 @@
             "codeFigure": "var x = 4;\nvar y = x;\nx = 3;",
             "answers": [
                 {
-                    "type": "markdown",
-                    "text": "`3`: Because `y` is a reference to `x` and `x` is `3`"
+                    "text": "**3**: Because `y` is a reference to `x` and `x` is `3`"
                 },
                 {
-                    "type": "markdown",
-                    "text": "`undefined`: Because `y` was set to `x` but then `x` changed so now `y` is a dead reference"
+                    "text": "**undefined**: Because `y` was set to `x` but then `x` changed so now `y` is a dead reference"
                 },
                 {
-                    "type": "markdown",
-                    "text": "`4`: Because `y` was set to the value of `x`, not `x` itself"
+                    "text": "**4**: Because `y` was set to the value of `x`, not `x` itself"
                 }
             ],
-            "correctAnswer": 2
+            "answerType": "markdown",
+            "correctAnswer": 3
         },
         {
             "id": "invoke-function",
@@ -77,23 +69,20 @@
             "codeFigure": "function myFunction(){\n\n}",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`(myFunction)`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myFunction||`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myFunction()`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`|myFunction|`"
                 }
             ],
-            "correctAnswer": 2
+            "answerType": "markdown",
+            "correctAnswer": 3
         },
         {
             "id": "function-variable-reference",
@@ -102,23 +91,20 @@
             "codeFigure": "function myFunction(){\n  var x = 5;\n\n  return 3 + x;\n}\n\nvar a = myFunction;",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`error`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myFunction`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`undefined`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`8`"
                 }
             ],
-            "correctAnswer": 1
+            "answerType": "markdown",
+            "correctAnswer": 2
         },
         {
             "id": "function-return-value",
@@ -127,23 +113,20 @@
             "codeFigure": "var r = 5;\n\nfunction anotherFunction(){\n  return 3 * r;\n}\n\nvar b = anotherFunction();",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`15`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`error`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`undefined`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`3`"
                 }
             ],
-            "correctAnswer": 0
+            "answerType": "markdown",
+            "correctAnswer": 1
         },
         {
             "id": "functions-returning-functions",
@@ -152,23 +135,20 @@
             "codeFigure": "var name = \"Bill\";\n\nfunction caller(func){\n  var myObject = {\n    name: \"Joe\"\n  };\n\n  return func(myObject);\n}\n\nfunction callee(param) {\n  return param.name\n}\n\nvar c = caller(callee);",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`Bill`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`caller`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myObject`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`Joe`"
                 }
             ],
-            "correctAnswer": 3
+            "answerType": "markdown",
+            "correctAnswer": 4
         },
         {
             "id": "complicated-math-and-closures",
@@ -177,23 +157,20 @@
             "codeFigure": "function caller(f){\n  var x = 3;\n\n  return f(5)(x);\n}\n\nvar d = caller(function(w){\n  var x = 4;\n\n  return function(y) {\n    return x * y + w;\n  };\n});",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`undefined`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`19`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`23`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`17`"
                 }
             ],
-            "correctAnswer": 3
+            "answerType": "markdown",
+            "correctAnswer": 4
         },
         {
             "id": "invoking-with-this",
@@ -202,23 +179,20 @@
             "codeFigure": "var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method();",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`undefined`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`window`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myObject`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`error`"
                 }
             ],
-            "correctAnswer": 2
+            "answerType": "markdown",
+            "correctAnswer": 3
         },
         {
             "id": "window-anonymous-functions",
@@ -227,23 +201,20 @@
             "codeFigure": "var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method;\nvar e = x();",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`undefined`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`window`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`myObject`"
                 },
                 {
-                    "type": "markdown",
                     "text": "`error`"
                 }
             ],
-            "correctAnswer": 1
+            "answerType": "markdown",
+            "correctAnswer": 2
         },
         {
             "id": "function-call-instantiation",
@@ -252,23 +223,20 @@
             "codeFigure": "function Person(props){\n  for(var prop in props) {\n    this[prop] = props[prop];\n  }\n}",
             "answers": [
                 {
-                    "type": "code",
                     "text": "var dan = Person(\n  age: 24,\n  name: 'Dan'\n);"
                 },
                 {
-                    "type": "code",
                     "text": "var dan = new Person({\n  age: 24,\n  name: 'Dan'\n});"
                 },
                 {
-                    "type": "code",
                     "text": "var dan = new Person({\n  24,\n  'Dan'\n});"
                 },
                 {
-                    "type": "code",
                     "text": "var dan = Person({\n  age: 24,\n  name: 'Dan'\n});"
                 }
             ],
-            "correctAnswer": 1
+            "answerType": "code",
+            "correctAnswer": 2
         },
         {
             "id": "var-vs-let-vs-const",
@@ -276,23 +244,20 @@
             "incorrectFeedback": "This is new syntax for ES6 and is good to know. Read more about it [here](http://wesbos.com/let-vs-const/)",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`let` is the newer equivalent of `var` where `const` is used when you want to instantiate a `new` constructor function"
                 },
                 {
-                    "type": "markdown",
                     "text": "Both `let` and `const` are values that cannot change where `var` can change but let is only used for numbers, strings and object variables"
                 },
                 {
-                    "type": "markdown",
                     "text": "`let` and `const` are only meant to be used in functions. `const` values cannot be changed however. `var` is now used for global variables"
                 },
                 {
-                    "type": "markdown",
                     "text": "`let` and `const` are both block-scoped variables except that `const` cannot be changed and both are newer replacements for `var`"
                 }
             ],
-            "correctAnswer": 3
+            "answerType": "markdown",
+            "correctAnswer": 4
         },
         {
             "id": "destructuring-basic",
@@ -301,27 +266,23 @@
             "codeFigure": "const myObject = {\n  age: 31,\n  name: \"Dan\"\n}",
             "answers": [
                 {
-                    "type": "code",
                     "text": "const { age, name } = myObject;"
                 },
                 {
-                    "type": "code",
                     "text": "const age = myObject[age];\nconst name = myObject[name];"
                 },
                 {
-                    "type": "code",
                     "text": "const age, name = myObject;"
                 },
                 {
-                    "type": "code",
                     "text": "const age, name = myObject;"
                 },
                 {
-                    "type": "code",
                     "text": "const myObject[age], myObject[name];"
                 }
             ],
-            "correctAnswer": 0
+            "answerType": "code",
+            "correctAnswer": 1
         },
         {
             "id": "import-export-basic",
@@ -329,19 +290,17 @@
             "incorrectFeedback": "These are absolutely critical pieces of the new ES6 syntax that you should know. The MDN site has great documents explaining both [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`import` is used for passing variables into a function where `export` is used for passing variables out of a function"
                 },
                 {
-                    "type": "markdown",
                     "text": "`import` and `export` are both used when you want to handle different languages in your application"
                 },
                 {
-                    "type": "markdown",
                     "text": "`import` and `export` are used to keep your modules (functions, classes, etc.) in separate files"
                 }
             ],
-            "correctAnswer": 2
+            "answerType": "markdown",
+            "correctAnswer": 3
         },
         {
             "id": "class-definition",
@@ -349,19 +308,17 @@
             "incorrectFeedback": "These are absolutely critical pieces of the new ES6 syntax that you should know. The MDN site has great documents explaining both [export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`class` is the newer form of a constructor function in ES6"
                 },
                 {
-                    "type": "markdown",
                     "text": "A `class` can be used when you want to have an object that is immutable and only houses functions"
                 },
                 {
-                    "type": "markdown",
                     "text": "`class` is similar to object but in ES6, can be used to house more advanced data types like `async` and `yield`"
                 }
             ],
-            "correctAnswer": 0
+            "answerType": "markdown",
+            "correctAnswer": 1
         },
         {
             "id": "generator-function",
@@ -369,19 +326,17 @@
             "incorrectFeedback": "ES6 actually didn't introduce anything too fundamentally changing to the language. More \"syntax sugar\". Since a `class` is the future of OOP in Javascript, understanding how it works under the hood is key. There's a great article about them [here](https://css-tricks.com/understanding-javascript-constructors/).",
             "answers": [
                 {
-                    "type": "markdown",
                     "text": "`class` is the newer form of a constructor function in ES6"
                 },
                 {
-                    "type": "markdown",
                     "text": "A `class` can be used when you want to have an object that is immutable and only houses functions"
                 },
                 {
-                    "type": "markdown",
                     "text": "`class` is similar to object but in ES6, can be used to house more advanced data types like `async` and `yield`"
                 }
             ],
-            "correctAnswer": 0
+
+            "correctAnswer": 1
         }
     ]
 }

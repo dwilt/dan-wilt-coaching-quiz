@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
 
-import isEmptyObject from "is-empty-object";
-
-import { QuizQuestion } from "components";
+import { QuizQuestion, QuizProgressIndicator } from "components";
 
 import PropTypes from "prop-types";
 
@@ -10,20 +8,23 @@ import "./Quiz.css";
 
 export default class Quiz extends PureComponent {
     static propTypes = {
-        questions: PropTypes.object,
+        question: PropTypes.object.isRequired,
+    };
+
+    handleOnSubmit = (e) => {
+        console.log(`form submitted`, e);
     };
 
     render() {
-        const { questions } = this.props;
+        const { question } = this.props;
 
-        return questions && !isEmptyObject(questions) ? (
-            <div className={`Quiz`}>
-                {Object.values(questions).map((question) => (
-                    <div key={question.id}>
-                        <QuizQuestion {...question} />
-                    </div>
-                ))}
-            </div>
-        ) : null;
+        return (
+            <form onSubmit={this.handleOnSubmit} className={`Quiz`}>
+                <div className={`Quiz__progress-indicator`}>
+                    <QuizProgressIndicator />
+                </div>
+                <QuizQuestion key={question.id} {...question} />
+            </form>
+        );
     }
 }

@@ -1,6 +1,24 @@
 .Quiz {
-    flex: 1;
+    padding: 0 195px;
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .Quiz {
+        padding: 0 130px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Quiz {
+        padding: 0 60px;
+    }
+}
+
+
+.Quiz__progress-indicator {
+    position: absolute;
+    top: 0;
+    right: 20px;
 }

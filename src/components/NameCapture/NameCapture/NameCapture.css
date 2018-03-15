@@ -1,0 +1,21 @@
+.NameCapture {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.NameCapture_wrapper {
+    width: 300px;
+}
+
+.NameCapture__question {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.NameCapture_continue-button {
+    text-align: center;
+    margin-top: 25px;
+}

@@ -1,10 +1,6 @@
 const functions = require(`firebase-functions`);
 
-import {
-    deleteAllQuestions,
-    addQuestion,
-    addAnswer,
-} from "./firestore";
+import { deleteAllQuestions, addQuestion, addAnswer } from "./firestore";
 
 exports.addAnswer = functions.https.onRequest(async (request, response) => {
     const { email, question, answer, version } = request.body;
@@ -21,7 +17,15 @@ exports.createQuestions = functions.https.onRequest(
         await deleteAllQuestions(version);
 
         await Promise.all(
-            questions.map((question) => addQuestion({ question, version }))
+            questions.map((question, i) =>
+                addQuestion({
+                    question: {
+                        ...question,
+                        index: i
+                    },
+                    version
+                })
+            )
         );
 
         response.send(`Questions updated for version ${version}!`);

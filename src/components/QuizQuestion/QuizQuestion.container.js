@@ -1,15 +1,20 @@
 import { connect } from "react-redux";
 
-import { compose } from "redux";
+import {
+    currentQuestionSelectedAnswerSelector,
+    nameCaptureNameSelector,
+} from "selectors";
 
-import { firestoreConnect } from "react-redux-firebase";
+import { addAnswerAction as onSubmit } from "store/answers/answers.actions";
 
-import Quiz from "./QuizQuestion.component";
+import QuizQuestion from "./QuizQuestion.component";
 
-export default compose(
-    firestoreConnect([`questions/1`]),
-    connect((state) => ({
-        questions:
-            state.firestore.data.questions && state.firestore.data.questions[1],
-    }))
-)(Quiz);
+export default connect(
+    (st) => ({
+        selectedAnswer: currentQuestionSelectedAnswerSelector(st),
+        name: nameCaptureNameSelector(st),
+    }),
+    {
+        onSubmit,
+    }
+)(QuizQuestion);

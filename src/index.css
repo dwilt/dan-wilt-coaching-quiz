@@ -1,10 +1,16 @@
+:root {
+    --dark-gray: #333333;
+    --dark-blue: #3597cc;
+    --blue: #37B9F1;
+    --light-blue: #9ADCF8;
+    --very-dark-blue: #2F658C;
+    --minTouchSize: 48px;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
+    font-family: 'Lato', sans-serif;
 }
 
 pre {
@@ -31,15 +37,24 @@ pre > .hljs {
     padding: 0
 }
 
-
 #root {
-    flex: 1;
-    display: flex;
 }
 
 code {
-    color: #1b2733;
-    background-color: #f7f9fa;
-    border-color: #e6e8eb;
-    font-family: SourceCodePro,monospace;
+    font-family: SourceCodePro, monospace;
+}
+
+.visuallyhidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+.btn.disabled {
+    opacity: .5;
 }

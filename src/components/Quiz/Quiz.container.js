@@ -4,12 +4,24 @@ import { compose } from "redux";
 
 import { firestoreConnect } from "react-redux-firebase";
 
+import { version } from "questions.json";
+
+import { answersSelector, firestoreQuestionByIndexSelector } from "selectors";
+
 import Quiz from "./Quiz.component";
 
 export default compose(
-    firestoreConnect([`questions/1`]),
-    connect((state) => ({
-        questions:
-            state.firestore.data.questions && state.firestore.data.questions[1],
-    }))
+    firestoreConnect([`questions/${version}`]),
+    connect((st) => {
+        const answers = answersSelector(st);
+        const completedQuestions = answers.length;
+        const question = firestoreQuestionByIndexSelector(
+            st,
+            completedQuestions
+        );
+
+        return {
+            question,
+        };
+    })
 )(Quiz);

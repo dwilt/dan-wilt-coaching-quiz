@@ -1,0 +1,22 @@
+.TextInput__container {
+    max-width: 300px;
+}
+
+.TextInput {
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid #F1F1F1;
+    height: 56px;
+    font-size: 1rem;
+    line-height: 56px;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    transition: border-color .2s;
+    padding: 0 20px;
+    display: block;
+}
+
+.TextInput:focus {
+    outline: 0;
+    border-color: var(--blue);
+}

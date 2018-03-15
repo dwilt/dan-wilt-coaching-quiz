@@ -1,12 +1,18 @@
-import { createStore, combineReducers, compose } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 
 import { reactReduxFirebase } from "react-redux-firebase";
 
-import { reduxFirestore, firestoreReducer } from "redux-firestore";
+import createSagaMiddleware from "redux-saga";
+
+import { reduxFirestore } from "redux-firestore";
 
 import firebase from "firebase";
 
 import "firebase/firestore";
+
+import sagas from "./sagas";
+
+import reducers from "./reducers";
 
 // react-redux-firebase config
 const rrfConfig = {
@@ -25,17 +31,22 @@ firebase.initializeApp({
 
 firebase.firestore();
 
-const createStoreWithFirebase = compose(
-    reactReduxFirebase(firebase, rrfConfig), // firebase instance as first argument
-    reduxFirestore(firebase) // <- needed if using firestore
-)(createStore);
+const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers({
-    firestore: firestoreReducer, // <- needed if using firestore
-});
+const middleware = [sagaMiddleware];
 
-export default createStoreWithFirebase(
-    rootReducer,
-    {},
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+    reducers,
+    {}, // initial state
+    composeEnhancers(
+        reactReduxFirebase(firebase, rrfConfig), // firebase instance as first argument
+        reduxFirestore(firebase),
+        applyMiddleware(...middleware)
+    )
 );
+
+export default store;
+
+sagaMiddleware.run(sagas);

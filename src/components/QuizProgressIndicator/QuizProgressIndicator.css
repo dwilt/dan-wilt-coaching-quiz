@@ -1,0 +1,61 @@
+.QuizProgressIndicator {
+    width: 153px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .QuizProgressIndicator {
+        transform: scale(.67);
+        transform-origin: 100% 0;
+        transition: transform .25s;
+    }
+}
+
+@media (max-width: 600px) {
+    .QuizProgressIndicator {
+        transform: scale(.3);
+        transform-origin: 100% 0;
+    }
+}
+
+.QuizProgressIndicator__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.QuizProgressIndicator > p {
+    line-height: 1;
+    position: relative;
+}
+
+.QuizProgressIndicator__slash {
+    height: 1px;
+    background-color: var(--dark-gray);
+    transform: rotate(-45deg);
+    top: 15px;
+    left: 7px;
+    width: 50px;
+}
+
+.QuizProgressIndicator .QuizProgressIndicator__total-answers,
+.QuizProgressIndicator .QuizProgressIndicator__total-questions {
+    position: relative;
+    color: var(--dark-gray);
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.QuizProgressIndicator .QuizProgressIndicator__total-answers {
+    left: 15px;
+    top: -15px;
+}
+
+.QuizProgressIndicator .QuizProgressIndicator__total-questions {
+    right: 18px;
+    bottom: -15px;
+}
