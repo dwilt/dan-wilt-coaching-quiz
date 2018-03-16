@@ -6,7 +6,6 @@
     },
     "plugins": [
         "react",
-        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -15,8 +14,7 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
-        "prettier"
+        "plugin:react/recommended"
     ],
     "globals": {
         "__DEV__": true,
@@ -54,14 +52,8 @@
         "pit": false
     },
     "rules": {
-        "prettier/prettier": [ // customizing prettier rules (unfortunately not many of them are customizable)
-            "error",
-            {
-                "singleQuote": true,
-                "trailingComma": "all",
-            },
-        ],
-        "indent": ["error", 4],               // disallow trailing commas in object literals
+        "indent": ["error", 4, { "SwitchCase": 1 }],               // disallow trailing commas in object literals
+        "arrow-parens": ["error", "always"],               // Require parens in arrow function arguments
         "comma-dangle": ["error", "always-multiline"],               // disallow trailing commas in object literals
         "no-cond-assign":["error"],             // disallow assignment in conditional expressions
         "no-console":["error"],                 // disallow use of console (off by default in the node environment)
@@ -210,7 +202,7 @@
         "react/jsx-sort-props":["off"],
         "react/jsx-uses-react":["error"],
         "react/jsx-uses-vars":["error"],
-        "react/jsx-curly-brace-presence":["error", { "props": "always" }],
+        "react/jsx-curly-brace-presence":["error", { "props": "always", "children": "always" }],
         "react/no-did-mount-set-state":["off"],
         "react/no-did-update-set-state":["error"],
         "react/no-multi-comp":["off"],

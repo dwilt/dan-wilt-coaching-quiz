@@ -21,12 +21,14 @@ export default class QuizProgressIndicator extends PureComponent {
                 style={{ backgroundImage: `url(${bg})` }}
             >
                 <p className={`QuizProgressIndicator__wrapper`}>
-                    <span className={`visuallyhidden`}>Question number </span>
+                    <span
+                        className={`visuallyhidden`}
+                    >{`Question number `}</span>
                     <span className={`QuizProgressIndicator__total-answers`}>
                         {totalAnswers + 1}
                     </span>
                     <span className={`QuizProgressIndicator__slash`} />
-                    <span className={`visuallyhidden`}> out of </span>
+                    <span className={`visuallyhidden`}>{` out of `}</span>
                     <span className={`QuizProgressIndicator__total-questions`}>
                         {totalQuestions}
                     </span>

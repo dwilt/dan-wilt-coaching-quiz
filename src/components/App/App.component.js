@@ -16,22 +16,22 @@ class App extends Component {
         let content = <div />;
 
         switch (state) {
-        case `nameCapture`:
-            content = <NameCapture />;
-            break;
+            case `nameCapture`:
+                content = <NameCapture />;
+                break;
 
-        case `question`:
-            content = <Quiz />;
-            break;
+            case `question`:
+                content = <Quiz />;
+                break;
 
-        default:
-            content = <div />;
-            break;
+            default:
+                content = <div />;
+                break;
         }
 
         return (
             <div className={`App`}>
-                <h1 className={`App__title`}>Javascript Quiz</h1>
+                <h1 className={`App__title`}>{`Javascript Quiz`}</h1>
                 {content}
             </div>
         );
