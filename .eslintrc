@@ -5,7 +5,8 @@
         "jest": true,
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -14,7 +15,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "prettier"
     ],
     "globals": {
         "__DEV__": true,
@@ -52,6 +54,13 @@
         "pit": false
     },
     "rules": {
+        "prettier/prettier": [ // customizing prettier rules (unfortunately not many of them are customizable)
+            "error",
+            {
+                "singleQuote": true,
+                "trailingComma": "all",
+            },
+        ],
         "indent": ["error", 4],               // disallow trailing commas in object literals
         "comma-dangle": ["error", "always-multiline"],               // disallow trailing commas in object literals
         "no-cond-assign":["error"],             // disallow assignment in conditional expressions
@@ -211,6 +220,6 @@
         "react/react-in-jsx-scope":["error"],
         "react/self-closing-comp":["error"],
         "react/wrap-multilines":["off"],
-
+        "react/jsx-no-literals": ["error"]
     }
 }

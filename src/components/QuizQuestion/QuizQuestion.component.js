@@ -53,7 +53,7 @@ export default class QuizQuestion extends PureComponent {
         return (
             <fieldset>
                 <div className={`QuizQuestion`}>
-                    {index === 0 && (
+                    {index === 1 && (
                         <p
                             className={`QuizQuestion__introduction`}
                         >{`Thanks ${name}! Let's get started...`}</p>

@@ -1,6 +1,8 @@
 import { put, takeEvery, select } from "redux-saga/effects";
 
-import { firestoreQuestionsArraySelector, answersSelector } from "selectors";
+import { questions } from "questions";
+
+import { answersSelector } from "selectors";
 
 export const setStateAction = (state) => ({
     type: `SET_STATE`,
@@ -15,7 +17,6 @@ function* submitName() {
 
 function* addAnswer() {
     const answers = yield select(answersSelector);
-    const questions = yield select(firestoreQuestionsArraySelector);
 
     if (answers.length === questions.length) {
         yield put(setStateAction(`emailCapture`));
