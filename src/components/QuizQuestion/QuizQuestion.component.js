@@ -81,13 +81,15 @@ export default class QuizQuestion extends PureComponent {
                             ))}
                         </ol>
                     </div>
-                    <ActionButton
-                        type={`submit`}
-                        disabled={typeof selectedAnswer !== `number`}
-                        onClick={this.handleOnSubmit}
-                    >
-                        Continue
-                    </ActionButton>
+                    <div className={`QuizQuestion__submit-button-wrapper`}>
+                        <ActionButton
+                            type={`submit`}
+                            disabled={typeof selectedAnswer !== `number`}
+                            onClick={this.handleOnSubmit}
+                        >
+                            Continue
+                        </ActionButton>
+                    </div>
                 </div>
             </fieldset>
         );

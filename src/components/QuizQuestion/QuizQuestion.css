@@ -1,7 +1,6 @@
 .QuizQuestion {
     display: flex;
     flex-direction: column;
-    align-items: center;
     max-width: 600px;
 }
 
@@ -78,7 +77,6 @@
 .QuizQuestion__answers-list {
     list-style-type: none;
     flex: 1;
-    max-width: 540px;
 }
 
 .QuizQuestion__answers-list.--grid {
@@ -116,3 +114,7 @@
     }
 }
 
+.QuizQuestion__submit-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
