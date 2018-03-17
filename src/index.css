@@ -44,6 +44,14 @@ code {
     font-family: SourceCodePro, monospace;
 }
 
+strong {
+    font-weight: 700
+}
+
+p + p {
+    margin-top: 20px
+}
+
 .visuallyhidden {
     position: absolute;
     overflow: hidden;

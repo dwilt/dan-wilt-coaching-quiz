@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 
 import { TextInput } from "components";
 
-import "./NameCaptureNameInput.css";
+import "./EmailCaptureEmailInput.css";
 
-export default class NameCaptureNameInput extends PureComponent {
+export default class EmailCaptureEmailInput extends PureComponent {
     static propTypes = {
         value: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
@@ -16,8 +16,8 @@ export default class NameCaptureNameInput extends PureComponent {
         return (
             <TextInput
                 {...this.props}
-                id={`name-input`}
-                placeholder={`First Name`}
+                id={`email-input`}
+                placeholder={`Email Address`}
                 autoFocus={true}
             />
         );

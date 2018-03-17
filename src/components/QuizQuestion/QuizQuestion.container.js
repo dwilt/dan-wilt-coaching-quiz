@@ -1,18 +1,20 @@
 import { connect } from "react-redux";
 
 import {
-    currentQuestionSelectedAnswerSelector,
-    nameCaptureNameSelector,
+    quizSelectedAnswerSelector,
+    quizNameSelector,
+    quizAnswersSelector,
 } from "selectors";
 
-import { addAnswerAction as onSubmit } from "store/answers/answers.actions";
+import { addAnswerAction as onSubmit } from "store/quiz/quiz.actions";
 
 import QuizQuestion from "./QuizQuestion.component";
 
 export default connect(
     (st) => ({
-        selectedAnswer: currentQuestionSelectedAnswerSelector(st),
-        name: nameCaptureNameSelector(st),
+        selectedAnswer: quizSelectedAnswerSelector(st),
+        name: quizNameSelector(st),
+        userAnswers: quizAnswersSelector(st),
     }),
     {
         onSubmit,

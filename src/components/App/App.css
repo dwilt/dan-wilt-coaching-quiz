@@ -2,19 +2,3 @@
     position: relative;
     padding-bottom: 40px;
 }
-
-.App__title {
-    font-size: 1.5rem;
-    line-height: 1;
-    color: var(--very-dark-blue);
-    font-weight: 700;
-    padding: 35px 20px;
-    margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-    .App__title {
-        font-size: 1.2rem;
-        padding: 25px 20px;
-    }
-}

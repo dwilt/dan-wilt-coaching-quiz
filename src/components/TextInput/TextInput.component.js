@@ -10,17 +10,29 @@ export default class TextInput extends PureComponent {
         placeholder: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
+        autoFocus: PropTypes.bool.isRequired,
     };
 
     static defaultProps = {
         type: `text`,
+        autoFocus: false,
     };
+
+    componentDidMount() {
+        const { autoFocus } = this.props;
+
+        if (autoFocus) {
+            this.input.focus();
+        }
+    }
 
     handleOnChange = ({ target: { value } }) => {
         const { onChange } = this.props;
 
         onChange(value);
     };
+
+    setInputRef = (ref) => (this.input = ref);
 
     render() {
         const { placeholder, id, ...rest } = this.props;
@@ -35,6 +47,7 @@ export default class TextInput extends PureComponent {
                     {...rest}
                     id={id}
                     onChange={this.handleOnChange}
+                    ref={this.setInputRef}
                 />
             </div>
         );

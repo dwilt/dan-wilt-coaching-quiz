@@ -1,17 +1,20 @@
 import { connect } from "react-redux";
 
-import { questions } from "questions.js";
+import { quizStateSelector } from "selectors";
 
-import { answersSelector } from "selectors";
+import { submitQuizAction as onSubmit } from "store/quiz/quiz.actions";
 
 import Quiz from "./Quiz.component";
 
-export default connect((st) => {
-    const answers = answersSelector(st);
-    const completedQuestions = answers.length;
-    const question = questions[completedQuestions];
+export default connect(
+    (st) => {
+        const state = quizStateSelector(st);
 
-    return {
-        question,
-    };
-})(Quiz);
+        return {
+            state,
+        };
+    },
+    {
+        onSubmit,
+    }
+)(Quiz);

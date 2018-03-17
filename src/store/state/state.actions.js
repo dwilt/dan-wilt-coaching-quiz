@@ -1,8 +1,6 @@
-import { put, takeEvery, select } from "redux-saga/effects";
+import { put, takeEvery } from "redux-saga/effects";
 
-import { questions } from "questions";
-
-import { answersSelector } from "selectors";
+import { submitQuizAction } from "store/quiz/quiz.actions";
 
 export const setStateAction = (state) => ({
     type: `SET_STATE`,
@@ -11,19 +9,10 @@ export const setStateAction = (state) => ({
     },
 });
 
-function* submitName() {
-    yield put(setStateAction(`question`));
-}
-
-function* addAnswer() {
-    const answers = yield select(answersSelector);
-
-    if (answers.length === questions.length) {
-        yield put(setStateAction(`emailCapture`));
-    }
+function* submitQuiz() {
+    yield put(setStateAction(`completed`));
 }
 
 export default function*() {
-    yield takeEvery(`SUBMIT_NAME`, submitName);
-    yield takeEvery(`ADD_ANSWER`, addAnswer);
+    yield takeEvery(submitQuizAction().type, submitQuiz);
 }

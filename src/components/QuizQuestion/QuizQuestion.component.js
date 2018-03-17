@@ -16,50 +16,62 @@ import classNames from "classnames";
 
 export default class QuizQuestion extends PureComponent {
     static propTypes = {
-        index: PropTypes.number.isRequired,
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        codeFigure: PropTypes.string,
-        answerType: PropTypes.oneOf([`code`, `markdown`]),
-        question: PropTypes.string.isRequired,
-        answers: PropTypes.array.isRequired,
-        incorrectFeedback: PropTypes.node,
+        questionNumber: PropTypes.number.isRequired,
         onSubmit: PropTypes.func.isRequired,
         selectedAnswer: PropTypes.number,
+        userAnswers: PropTypes.array.isRequired,
+        name: PropTypes.string.isRequired,
+        question: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            codeFigure: PropTypes.string,
+            answerType: PropTypes.oneOf([`code`, `markdown`]),
+            question: PropTypes.string.isRequired,
+            answers: PropTypes.array.isRequired,
+            incorrectFeedback: PropTypes.node,
+        }).isRequired,
     };
 
-    handleOnSubmit = (e) => {
-        const { selectedAnswer, id, onSubmit } = this.props;
+    handleOnSubmit = () => {
+        const { selectedAnswer, question: { id }, onSubmit } = this.props;
 
         onSubmit({ id, selectedAnswer });
     };
 
     render() {
         const {
-            codeFigure,
-            question,
-            answers,
-            id,
-            name,
-            index,
+            question: {
+                question: questionString,
+                codeFigure,
+                answers,
+                id,
+                answerType,
+            },
+            questionNumber,
             selectedAnswer,
-            answerType,
+            userAnswers,
+            name,
         } = this.props;
+
+        const active = userAnswers.length + 1 === questionNumber;
+
+        const fieldsetClasses = classNames({
+            [`visuallyhidden`]: !active,
+        });
 
         const answerListClasses = classNames(`QuizQuestion__answers-list`, {
             [`--grid`]: answerType === `code`,
         });
 
         return (
-            <fieldset>
+            <fieldset className={fieldsetClasses}>
                 <div className={`QuizQuestion`}>
-                    {index === 1 && (
+                    {questionNumber === 1 && (
                         <p
                             className={`QuizQuestion__introduction`}
                         >{`Thanks ${name}! Let's get started...`}</p>
                     )}
                     <div className={`QuizQuestion__question`}>
-                        <Markdown>{question}</Markdown>
+                        <Markdown>{questionString}</Markdown>
                     </div>
                     {codeFigure && (
                         <div className={`QuizQuestion__code-figure`}>
@@ -83,7 +95,7 @@ export default class QuizQuestion extends PureComponent {
                     </div>
                     <div className={`QuizQuestion__submit-button-wrapper`}>
                         <ActionButton
-                            type={`submit`}
+                            type={`button`}
                             disabled={typeof selectedAnswer !== `number`}
                             onClick={this.handleOnSubmit}
                         >

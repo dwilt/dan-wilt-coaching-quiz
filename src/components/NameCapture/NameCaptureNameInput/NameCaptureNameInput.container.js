@@ -1,14 +1,14 @@
 import { connect } from "react-redux";
 
-import { nameCaptureNameSelector } from "selectors";
+import { quizNameSelector } from "selectors";
 
-import { setNameAction as onChange } from "store/nameCapture/nameCapture.actions";
+import { setNameAction as onChange } from "store/quiz/quiz.actions";
 
 import NameCaptureNameInput from "./NameCaptureNameInput.component";
 
 export default connect(
     (st) => ({
-        value: nameCaptureNameSelector(st),
+        value: quizNameSelector(st),
     }),
     {
         onChange,

@@ -8,13 +8,15 @@ export default class NameCapture extends PureComponent {
     render() {
         return (
             <div className={`NameCapture`}>
-                <p className={`NameCapture__question`}>
-                    {`What's your first name?`}
-                </p>
-                <div className={`NameCapture_wrapper`}>
-                    <NameCaptureNameInput />
-                    <div className={`NameCapture_continue-button`}>
-                        <NameCaptureContinueButton />
+                <div className={`NameCapture__wrapper`}>
+                    <p className={`NameCapture__title`}>
+                        {`What's your first name?`}
+                    </p>
+                    <div className={`NameCapture__form-wrapper`}>
+                        <NameCaptureNameInput />
+                        <div className={`NameCapture__continue-button`}>
+                            <NameCaptureContinueButton />
+                        </div>
                     </div>
                 </div>
             </div>

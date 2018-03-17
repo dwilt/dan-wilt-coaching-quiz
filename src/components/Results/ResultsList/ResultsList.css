@@ -1,0 +1,12 @@
+.ResultsList {
+    list-style-type: none;
+    margin: 0;
+}
+
+.ResultsList > li {
+    margin: 0
+}
+
+.ResultsList__question-title{
+    margin-bottom: 20px
+}

@@ -3,7 +3,7 @@ import "./App.css";
 
 import PropTypes from "prop-types";
 
-import { Quiz, NameCapture } from "components";
+import { Quiz, Results } from "components";
 
 class App extends Component {
     static propTypes = {
@@ -16,25 +16,19 @@ class App extends Component {
         let content = <div />;
 
         switch (state) {
-            case `nameCapture`:
-                content = <NameCapture />;
+            case `completed`:
+                content = <Results />;
                 break;
 
-            case `question`:
+            case `quiz`:
                 content = <Quiz />;
                 break;
 
             default:
                 content = <div />;
-                break;
         }
 
-        return (
-            <div className={`App`}>
-                <h1 className={`App__title`}>{`Javascript Quiz`}</h1>
-                {content}
-            </div>
-        );
+        return <div className={`App`}>{content}</div>;
     }
 }
 
