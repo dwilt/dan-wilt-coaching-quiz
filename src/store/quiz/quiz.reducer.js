@@ -11,7 +11,7 @@ import { createReducer } from "helpers";
 export default createReducer(
     {
         state: `nameCapture`,
-        selectedAnswer: 1,
+        selectedAnswer: null,
         answers: [],
         email: `dan@dan.com`,
         name: `Dan`,

@@ -4,9 +4,55 @@
 }
 
 .CompletedResultsList > li {
-    margin: 0
+    margin: 0 0 48px;
+}
+
+.CompletedResultsList__container {
+    padding-left: 48px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: top left;
+    max-width: 800px;
 }
 
 .CompletedResultsList__question-title {
     margin-bottom: 20px
+}
+
+.CompletedResultsList__content {
+    display: flex;
+}
+
+.CompletedResultsList__code-figure {
+    margin-right: 35px;
+}
+
+.CompletedResultsList__answers {
+    flex: 1;
+}
+
+.CompletedResultsList__answers-wrapper {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    margin-bottom: 24px;
+}
+
+.CompletedResultsList__answers-wrapper.--no-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 24px;
+    margin-bottom: 0;
+}
+
+.CompletedResultsList__feedback-title,
+.CompletedResultsList__answer-title {
+    font-weight: 700;
+    font-size: .8rem;
+    margin-bottom: 4px;
+}
+
+.CompletedResultsList__feedback a {
+    color: var(--blue)
 }

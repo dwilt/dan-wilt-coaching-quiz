@@ -1,12 +1,6 @@
 import React, { PureComponent } from "react";
 
-import Highlight from "react-highlight";
-
-import Markdown from "react-remarkable";
-
-import { QuestionAnswer, ActionButton } from "components";
-
-import "highlight.js/styles/darkula.css";
+import { QuestionAnswer, ActionButton, CodeFigure, Question } from "components";
 
 import PropTypes from "prop-types";
 
@@ -39,13 +33,7 @@ export default class QuizQuestion extends PureComponent {
 
     render() {
         const {
-            question: {
-                question: questionString,
-                codeFigure,
-                answers,
-                id,
-                answerType,
-            },
+            question: { question, codeFigure, answers, id, answerType },
             questionNumber,
             selectedAnswer,
             userAnswers,
@@ -71,13 +59,11 @@ export default class QuizQuestion extends PureComponent {
                         >{`Thanks ${name}! Let's get started...`}</p>
                     )}
                     <div className={`QuizQuestion__question`}>
-                        <Markdown>{questionString}</Markdown>
+                        <Question question={question} />
                     </div>
                     {codeFigure && (
                         <div className={`QuizQuestion__code-figure`}>
-                            <Highlight className={`javascript`}>
-                                {codeFigure}
-                            </Highlight>
+                            <CodeFigure codeFigure={codeFigure} />
                         </div>
                     )}
                     <div className={`QuizQuestion__answers-list-wrapper`}>
@@ -85,8 +71,9 @@ export default class QuizQuestion extends PureComponent {
                             {answers.map((answer = {}, i) => (
                                 <li key={i}>
                                     <QuestionAnswer
+                                        text={answer}
+                                        answerType={answerType}
                                         questionId={id}
-                                        {...answer}
                                         answerNumber={i + 1}
                                     />
                                 </li>
@@ -99,7 +86,7 @@ export default class QuizQuestion extends PureComponent {
                             disabled={typeof selectedAnswer !== `number`}
                             onClick={this.handleOnSubmit}
                         >
-                            Continue
+                            {`Continue`}
                         </ActionButton>
                     </div>
                 </div>

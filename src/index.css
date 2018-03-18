@@ -4,6 +4,8 @@
     --blue: #37B9F1;
     --light-blue: #9ADCF8;
     --very-dark-blue: #2F658C;
+    --red: #BB0017;
+    --green: #80AE52;
     --minTouchSize: 48px;
 }
 
@@ -41,6 +43,7 @@ pre > .hljs {
 }
 
 code {
+    padding: 0 4px;
     font-family: SourceCodePro, monospace;
 }
 

@@ -64,7 +64,7 @@ export default class Quiz extends PureComponent {
 
         return (
             <form onSubmit={this.handleOnSubmit} className={`Quiz`}>
-                <h1 className={`Quiz__title`}>{`Javascript Quiz`}</h1>
+                <h1 className={`Quiz__title`}>Javascript Quiz</h1>
                 <div className={`Quiz__content-container`}>{content}</div>
             </form>
         );

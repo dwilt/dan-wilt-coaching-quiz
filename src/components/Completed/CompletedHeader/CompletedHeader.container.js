@@ -1,12 +1,9 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import {
-    quizNameSelector,
-} from 'selectors';
+import { quizNameSelector } from "selectors";
 
-
-import CompletedHeader from './CompletedHeader.component';
+import CompletedHeader from "./CompletedHeader.component";
 
 export default connect((st) => ({
     name: quizNameSelector(st),
-}), {})(CompletedHeader);
+}))(CompletedHeader);

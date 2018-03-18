@@ -1,0 +1,72 @@
+.CodeFigure > pre {
+    margin: 0;
+}
+
+.CodeFigure .hljs {
+    display: block;
+    overflow-x: auto;
+    background: #2b2b2b;
+    padding: 20px 15px;
+    border-radius: 5px;
+    color: #bababa;
+}
+
+.CodeFigure .hljs-strong,
+.CodeFigure .hljs-emphasis {
+    color: #a8a8a2;
+}
+
+.CodeFigure .hljs-bullet,
+.CodeFigure .hljs-quote,
+.CodeFigure .hljs-link,
+.CodeFigure .hljs-number,
+.CodeFigure .hljs-regexp,
+.CodeFigure .hljs-literal {
+    color: #6896ba;
+}
+
+.CodeFigure .hljs-code,
+.CodeFigure .hljs-selector-class {
+    color: #a6e22e;
+}
+
+.CodeFigure .hljs-emphasis {
+    font-style: italic;
+}
+
+.CodeFigure .hljs-keyword,
+.CodeFigure .hljs-selector-tag,
+.CodeFigure .hljs-section,
+.CodeFigure .hljs-attribute,
+.CodeFigure .hljs-name,
+.CodeFigure .hljs-variable {
+    color: #cb7832;
+}
+
+.CodeFigure .hljs-params {
+    color: #b9b9b9;
+}
+
+.CodeFigure .hljs-string {
+    color: #6a8759;
+}
+
+.CodeFigure .hljs-subst,
+.CodeFigure .hljs-type,
+.CodeFigure .hljs-built_in,
+.CodeFigure .hljs-builtin-name,
+.CodeFigure .hljs-symbol,
+.CodeFigure .hljs-selector-id,
+.CodeFigure .hljs-selector-attr,
+.CodeFigure .hljs-selector-pseudo,
+.CodeFigure .hljs-template-tag,
+.CodeFigure .hljs-template-variable,
+.CodeFigure .hljs-addition {
+    color: #e0c46c;
+}
+
+.CodeFigure .hljs-comment,
+.CodeFigure .hljs-deletion,
+.CodeFigure .hljs-meta {
+    color: #7f7f7f;
+}

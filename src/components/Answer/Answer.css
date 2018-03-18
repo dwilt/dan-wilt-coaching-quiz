@@ -1,0 +1,63 @@
+.Answer {
+    display: block;
+    background-color: #F7F7F7;
+    border: 2px solid #F1F1F1;
+    padding: 20px;
+    position: relative;
+    border-radius: 5px;
+    transition: border-color .2s;
+}
+
+.Answer.--theme-blue-outline {
+    border-color: var(--blue)
+}
+
+.Answer.--theme-red {
+    border-color: rgba(187, 0, 23, .4);
+    background-color: rgba(187, 0, 23, .2);
+}
+
+.Answer.--theme-green {
+    border-color: rgba(128, 174, 82, .4);
+    background-color: rgba(128, 174, 82, .2);
+}
+
+.Answer__question-number {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: .625rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #B3B3B3;
+    font-weight: 900;
+    transition: color .2s;
+}
+
+.Answer.--theme-blue-outline .Answer__question-number {
+    color: var(--blue)
+}
+
+.Answer.--theme-red .Answer__question-number {
+    color: var(--red);
+}
+
+.Answer.--theme-green .Answer__question-number {
+    color: var(--green);
+}
+
+.Answer code {
+    background-color: rgba(255, 255, 255, .8);
+}
+
+.Answer.--theme-red code {
+    background-color: rgba(187, 0, 23, .2);
+}
+
+.Answer.--theme-green code {
+    background-color: rgba(128, 174, 82, .2);
+}
+
+.Answer__text .hljs {
+    background-color: transparent !important;
+}

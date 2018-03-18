@@ -1,2 +1,1 @@
-export { default as Completed } from './Completed.container';
-
+export { default as Completed } from "./Completed.container";

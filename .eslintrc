@@ -202,7 +202,7 @@
         "react/jsx-sort-props":["off"],
         "react/jsx-uses-react":["error"],
         "react/jsx-uses-vars":["error"],
-        "react/jsx-curly-brace-presence":["error", { "props": "always", "children": "always" }],
+        "react/jsx-curly-brace-presence":["error", { "props": "always" }],
         "react/no-did-mount-set-state":["off"],
         "react/no-did-update-set-state":["error"],
         "react/no-multi-comp":["off"],

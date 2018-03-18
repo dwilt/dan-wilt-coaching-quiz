@@ -1,1 +1,3 @@
-export { default as CompletedResultsList } from './CompletedResultsList.container';
+export {
+    default as CompletedResultsList,
+} from "./CompletedResultsList.container";
