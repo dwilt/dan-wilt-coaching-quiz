@@ -1,30 +1,27 @@
-.Results {
-    padding: 80px 20px 0;
-}
-
-.Results__header {
+.CompletedHeader {
     padding-bottom: 45px;
     margin-bottom: 45px;
     border-bottom: 1px solid #E8E8E8
 }
 
-.Results__header-content {
+.CompletedHeader__header-content {
     max-width: 800px;
 }
 
-.Results__title {
+.CompletedHeader__title {
     color: var(--very-dark-blue);
     font-size: 2rem;
+    line-height: 1.3;
     margin-bottom: 40px;
     font-weight: 900;
 }
 
-.Results__coding-strength {
+.CompletedHeader__coding-strength {
     font-size: 1.5rem;
+    line-height: 1.3;
     margin-bottom: 20px;
 }
 
-.Results__schedule-call-button {
+.CompletedHeader__schedule-call-button {
     margin-top: 25px
 }
-

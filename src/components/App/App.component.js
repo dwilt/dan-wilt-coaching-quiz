@@ -3,7 +3,7 @@ import "./App.css";
 
 import PropTypes from "prop-types";
 
-import { Quiz, Results } from "components";
+import { Quiz, Completed } from "components";
 
 class App extends Component {
     static propTypes = {
@@ -17,7 +17,7 @@ class App extends Component {
 
         switch (state) {
             case `completed`:
-                content = <Results />;
+                content = <Completed />;
                 break;
 
             case `quiz`:

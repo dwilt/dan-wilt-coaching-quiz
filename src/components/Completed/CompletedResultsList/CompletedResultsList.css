@@ -1,0 +1,12 @@
+.CompletedResultsList {
+    list-style-type: none;
+    margin: 0;
+}
+
+.CompletedResultsList > li {
+    margin: 0
+}
+
+.CompletedResultsList__question-title {
+    margin-bottom: 20px
+}

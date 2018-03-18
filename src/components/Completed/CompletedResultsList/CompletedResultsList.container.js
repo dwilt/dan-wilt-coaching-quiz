@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import {quizAnswersSelector} from 'selectors';
 
 
-import ResultsList from './ResultsList.component';
+import CompletedResultsList from './CompletedResultsList.component';
 
 export default connect((st) => ({
     answers: quizAnswersSelector(st)
-}), {})(ResultsList);
+}), {})(CompletedResultsList);
