@@ -2,6 +2,12 @@
     max-width: 300px;
 }
 
+@media (max-width: 450px) {
+    .TextInput__container {
+        max-width: none;
+    }
+}
+
 .TextInput {
     box-sizing: border-box;
     width: 100%;

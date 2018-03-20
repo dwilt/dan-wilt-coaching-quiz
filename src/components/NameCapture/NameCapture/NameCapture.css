@@ -23,6 +23,12 @@
     width: 300px;
 }
 
+@media (max-width: 450px) {
+    .NameCapture__form-wrapper {
+        width: 100%;
+    }
+}
+
 .NameCapture__continue-button {
     text-align: center;
     margin-top: 25px;
