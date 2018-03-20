@@ -5,15 +5,17 @@
     "lint": "eslint . --fix",
     "pretty": "prettier --write \"**/*.js\"",
     "format": "npm run pretty; npm run lint",
+    "install-firebase-dependencies": "cd ../functions; yarn",
     "compile-to-es5": "rm -rf ../functions; babel . --out-dir ../functions --copy-files --ignore node_modules",
     "serve": "firebase serve --only functions",
     "shell": "firebase experimental:functions:shell",
     "start": "npm run shell",
-    "deploy": "npm run format; npm run compile-to-es5; firebase deploy --only functions",
+    "deploy": "npm run format; npm run compile-to-es5; npm run install-firebase-dependencies; firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "cors": "^2.8.4",
     "firebase-admin": "~5.8.1",
     "firebase-functions": "^0.8.1",
     "regenerator-runtime": "^0.11.1"
