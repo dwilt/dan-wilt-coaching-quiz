@@ -70,7 +70,6 @@
 
 .QuizQuestion__answers-list > li {
     margin: 0;
-    overflow-x: auto;
 }
 
 .QuizQuestion__answers-list.--grid {

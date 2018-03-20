@@ -7,15 +7,26 @@
     margin: 0 0 48px;
 }
 
+
+
 .CompletedResultsList__container {
     padding-left: 48px;
     background-repeat: no-repeat;
     background-size: 24px 24px;
-    background-position: top left;
+    background-position: left top;
     max-width: 800px;
 }
 
+@media (max-width: 600px) {
+    .CompletedResultsList__container {
+        padding-left: 30px;
+        background-size: 20px 20px;
+        background-position: left 5px;
+    }
+}
+
 .CompletedResultsList__question-title {
+    padding-top: 2px;
     margin-bottom: 20px
 }
 
@@ -23,8 +34,23 @@
     display: flex;
 }
 
+@media (max-width: 600px) {
+    .CompletedResultsList__content {
+        display: block;
+        grid-template-columns: auto;
+        grid-row-gap: 24px;
+    }
+}
+
 .CompletedResultsList__code-figure {
     margin-right: 35px;
+}
+
+@media (max-width: 600px) {
+    .CompletedResultsList__code-figure {
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
 }
 
 .CompletedResultsList__answers {
@@ -37,6 +63,14 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 24px;
     margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+    .CompletedResultsList__answers-wrapper {
+        grid-template-columns: auto;
+        grid-row-gap: 24px;
+        margin-bottom: 0;
+    }
 }
 
 .CompletedResultsList__answers-wrapper.--no-grid {
