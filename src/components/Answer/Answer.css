@@ -8,6 +8,18 @@
     transition: border-color .2s;
 }
 
+@media (max-width: 600px) {
+    .Answer {
+        padding: 16px
+    }
+}
+
+@media (max-width: 600px) {
+    .Answer__text {
+        font-size: 1.4rem;
+    }
+}
+
 .Answer.--theme-blue-outline {
     border-color: var(--blue)
 }
@@ -26,7 +38,7 @@
     position: absolute;
     top: 4px;
     left: 4px;
-    font-size: .625rem;
+    font-size: 1rem;
     line-height: 1;
     text-transform: uppercase;
     color: #B3B3B3;

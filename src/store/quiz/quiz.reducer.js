@@ -13,8 +13,8 @@ export default createReducer(
         state: `nameCapture`,
         selectedAnswer: null,
         answers: [],
-        email: `dan@dan.com`,
-        name: `Dan`,
+        email: ``,
+        name: ``,
     },
     {
         [setStateAction().type]: (st, { state }) => ({

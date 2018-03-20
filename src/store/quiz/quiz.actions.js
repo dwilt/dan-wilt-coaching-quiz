@@ -58,6 +58,8 @@ function* addAnswer() {
 
     yield put(setSelectedAnswerAction());
 
+    yield call(window.scrollTo, 0,0);
+
     if (answers.length === questions.length) {
         yield put(setStateAction(`emailCapture`));
     }

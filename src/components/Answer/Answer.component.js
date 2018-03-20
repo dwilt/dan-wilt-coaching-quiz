@@ -68,7 +68,7 @@ export default class Answer extends PureComponent {
 
         const content = (
             <div className={containerClasses}>
-                <span className={`Answer__question-number`}>
+                <span className={`Answer__question-number`} aria-hidden={true}>
                     {letterMap[answerNumber]}
                 </span>
                 {onChange && (

@@ -42,7 +42,7 @@ export default class QuizQuestion extends PureComponent {
 
         const active = userAnswers.length + 1 === questionNumber;
 
-        const fieldsetClasses = classNames({
+        const questionClasses = classNames(`QuizQuestion`, {
             [`visuallyhidden`]: !active,
         });
 
@@ -51,13 +51,14 @@ export default class QuizQuestion extends PureComponent {
         });
 
         return (
-            <fieldset className={fieldsetClasses}>
-                <div className={`QuizQuestion`}>
-                    {questionNumber === 1 && (
-                        <p
-                            className={`QuizQuestion__introduction`}
-                        >{`Thanks ${name}! Let's get started...`}</p>
-                    )}
+            <div className={questionClasses}>
+                {questionNumber === 1 && (
+                    <p
+                        className={`QuizQuestion__introduction`}
+                    >{`Thanks ${name}! Let's get started...`}</p>
+                )}
+                <fieldset>
+                    <legend className={`visuallyhidden`}>{question}</legend>
                     <div className={`QuizQuestion__question`}>
                         <Question question={question} />
                     </div>
@@ -89,8 +90,8 @@ export default class QuizQuestion extends PureComponent {
                             {`Continue`}
                         </ActionButton>
                     </div>
-                </div>
-            </fieldset>
+                </fieldset>
+            </div>
         );
     }
 }

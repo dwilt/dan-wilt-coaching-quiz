@@ -15,7 +15,7 @@ export default class Question extends PureComponent {
         const { question } = this.props;
 
         return (
-            <div className={`Question`}>
+            <div className={`Question`} aria-hidden={true}>
                 <Markdown>{question}</Markdown>
             </div>
         );

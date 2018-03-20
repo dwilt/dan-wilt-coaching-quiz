@@ -23,8 +23,7 @@
     "redux": "^3.7.2",
     "redux-firestore": "^0.2.8",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1",
-    "reset-css": "^2.2.1"
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "NODE_PATH=src react-scripts start",

@@ -1,10 +1,13 @@
+.CodeFigure {
+    overflow-x: auto;
+}
+
 .CodeFigure > pre {
     margin: 0;
 }
 
 .CodeFigure .hljs {
     display: block;
-    overflow-x: auto;
     background: #2b2b2b;
     padding: 20px 15px;
     border-radius: 5px;
