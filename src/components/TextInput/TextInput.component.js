@@ -7,6 +7,7 @@ import "./TextInput.css";
 export default class TextInput extends PureComponent {
     static propTypes = {
         onChange: PropTypes.func.isRequired,
+        onEnterPress: PropTypes.func,
         placeholder: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
@@ -34,8 +35,16 @@ export default class TextInput extends PureComponent {
 
     setInputRef = (ref) => (this.input = ref);
 
+    onKeyPress = ({ key }) => {
+        const { onEnterPress } = this.props;
+
+        if (key === `Enter`) {
+            onEnterPress();
+        }
+    };
+
     render() {
-        const { placeholder, id, ...rest } = this.props;
+        const { placeholder, id, onEnterPress, ...rest } = this.props;
 
         return (
             <div className={`TextInput__container`}>
@@ -46,6 +55,7 @@ export default class TextInput extends PureComponent {
                     className={`TextInput`}
                     {...rest}
                     id={id}
+                    onKeyPress={onEnterPress ? this.onKeyPress : null}
                     onChange={this.handleOnChange}
                     ref={this.setInputRef}
                 />

@@ -10,6 +10,7 @@ export default class NameCaptureNameInput extends PureComponent {
     static propTypes = {
         value: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
+        onEnterPress: PropTypes.func.isRequired,
     };
 
     render() {

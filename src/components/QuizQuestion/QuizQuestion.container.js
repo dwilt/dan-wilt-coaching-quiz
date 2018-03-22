@@ -6,7 +6,7 @@ import {
     quizAnswersSelector,
 } from "selectors";
 
-import { addAnswerAction as onSubmit } from "store/quiz/quiz.actions";
+import { submitAnswerAction as onSubmit } from "store/quiz/quiz.actions";
 
 import QuizQuestion from "./QuizQuestion.component";
 

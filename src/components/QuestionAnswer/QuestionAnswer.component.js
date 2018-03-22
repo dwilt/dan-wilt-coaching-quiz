@@ -10,6 +10,7 @@ export default class QuestionAnswer extends PureComponent {
         selectedAnswer: PropTypes.number,
         text: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
+        onEnterPress: PropTypes.func.isRequired,
     };
 
     render() {

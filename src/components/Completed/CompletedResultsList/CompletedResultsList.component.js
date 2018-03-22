@@ -21,7 +21,7 @@ export default class CompletedResultsList extends PureComponent {
         answers: PropTypes.arrayOf(
             PropTypes.shape({
                 id: PropTypes.string.isRequired,
-                selectedAnswer: PropTypes.number.isRequired,
+                answer: PropTypes.number.isRequired,
             })
         ).isRequired,
     };
@@ -31,7 +31,7 @@ export default class CompletedResultsList extends PureComponent {
 
         return (
             <ol className={`CompletedResultsList`}>
-                {answers.map(({ selectedAnswer, id }, i) => {
+                {answers.map(({ answer, id }, i) => {
                     const {
                         question,
                         correctAnswer,
@@ -43,8 +43,8 @@ export default class CompletedResultsList extends PureComponent {
 
                     const correctAnswerText =
                         questionAnswers[correctAnswer - 1];
-                    const userAnswerText = questionAnswers[selectedAnswer - 1];
-                    const answeredCorrectly = correctAnswer === selectedAnswer;
+                    const userAnswerText = questionAnswers[answer - 1];
+                    const answeredCorrectly = correctAnswer === answer;
 
                     const answersWrapperClasses = classNames(
                         `CompletedResultsList__answers-wrapper`,
@@ -113,9 +113,7 @@ export default class CompletedResultsList extends PureComponent {
                                                 </p>
                                                 <Answer
                                                     answerType={answerType}
-                                                    answerNumber={
-                                                        selectedAnswer
-                                                    }
+                                                    answerNumber={answer}
                                                     text={userAnswerText}
                                                     theme={
                                                         answeredCorrectly

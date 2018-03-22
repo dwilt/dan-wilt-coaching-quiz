@@ -29,6 +29,7 @@ export default class Answer extends PureComponent {
         theme: PropTypes.oneOf([`none`, `green`, `red`, `blue-outline`])
             .isRequired,
         onChange: PropTypes.func,
+        onEnterPress: PropTypes.func,
     };
 
     static defaultProps = {
@@ -42,10 +43,19 @@ export default class Answer extends PureComponent {
         onChange(answerNumber);
     };
 
+    onKeyPress = ({ key }) => {
+        const { onEnterPress } = this.props;
+
+        if (key === `Enter`) {
+            onEnterPress();
+        }
+    };
+
     render() {
         const {
             onChange,
             answerType,
+            onEnterPress,
             text,
             questionId,
             answerNumber,
@@ -76,6 +86,7 @@ export default class Answer extends PureComponent {
                         className={`visuallyhidden`}
                         value={questionId}
                         checked={answerIsSelected}
+                        onKeyPress={onEnterPress ? this.onKeyPress : null}
                         onChange={this.handleOnChange}
                         type={`radio`}
                         name={questionId}

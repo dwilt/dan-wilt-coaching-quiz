@@ -1,14 +1,18 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
 
-import { questions, version } from "questions";
+import { version } from "questions";
 
 import {
     quizAnswersSelector,
     quizNameSelector,
     quizEmailSelector,
+    quizSelectedAnswerSelector,
+    quizQuestionIdSelector,
+    quizIsCompleteSelector,
 } from "selectors";
 
 import { fireFetch } from "services/firebase.service";
+import sendSlackMessage from "services/slack.service";
 
 export const setStateAction = (state) => ({
     type: `SET_QUIZ_STATE`,
@@ -45,6 +49,17 @@ export const addAnswerAction = (answer) => ({
     },
 });
 
+export const setQuestionIdAction = (questionId) => ({
+    type: `SET_QUIZ_QUESTION_ID`,
+    payload: {
+        questionId,
+    },
+});
+
+export const submitAnswerAction = () => ({
+    type: `SUBMIT_SELECTED_ANSWER`,
+});
+
 export const submitNameAction = () => ({
     type: `SUBMIT_NAME`,
 });
@@ -54,13 +69,23 @@ export const submitQuizAction = () => ({
 });
 
 function* addAnswer() {
-    const answers = yield select(quizAnswersSelector);
+    const id = yield select(quizQuestionIdSelector);
+    const answer = yield select(quizSelectedAnswerSelector);
 
     yield put(setSelectedAnswerAction());
 
-    yield call(window.scrollTo, 0,0);
+    yield put(
+        addAnswerAction({
+            id,
+            answer,
+        })
+    );
 
-    if (answers.length === questions.length) {
+    yield call(window.scrollTo, 0, 0);
+
+    const quizComplete = yield select(quizIsCompleteSelector);
+
+    if (quizComplete) {
         yield put(setStateAction(`emailCapture`));
     }
 }
@@ -70,9 +95,11 @@ function* submitName() {
 }
 
 function* submitQuiz() {
+    const answers = yield select(quizAnswersSelector);
     const name = yield select(quizNameSelector);
     const email = yield select(quizEmailSelector);
-    const answers = yield select(quizAnswersSelector);
+
+    const timestamp = new Date().toISOString();
 
     try {
         yield call(fireFetch, `addResult`, {
@@ -80,6 +107,11 @@ function* submitQuiz() {
             name,
             email,
             answers,
+            timestamp,
+        });
+
+        yield call(sendSlackMessage, {
+            text: `New quiz submission from ${name}: ${email}`,
         });
     } catch (e) {
         console.log(e);
@@ -89,5 +121,5 @@ function* submitQuiz() {
 export default function*() {
     yield takeEvery(submitQuizAction().type, submitQuiz);
     yield takeEvery(submitNameAction().type, submitName);
-    yield takeEvery(addAnswerAction().type, addAnswer);
+    yield takeEvery(submitAnswerAction().type, addAnswer);
 }

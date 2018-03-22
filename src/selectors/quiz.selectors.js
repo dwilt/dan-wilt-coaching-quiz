@@ -1,5 +1,7 @@
 import { createSelector } from "reselect";
 
+import { questions } from "questions";
+
 import { isValidEmail } from "helpers";
 
 const quizSelector = (state) => state.quiz;
@@ -32,4 +34,14 @@ export const quizEmailSelector = createSelector(
 export const quizEmailIsValidSelector = createSelector(
     quizEmailSelector,
     (email) => isValidEmail(email)
+);
+
+export const quizIsCompleteSelector = createSelector(
+    [quizAnswersSelector],
+    (answers) => answers.length === questions.length
+);
+
+export const quizQuestionIdSelector = createSelector(
+    [quizAnswersSelector],
+    (answers) => questions[answers.length].id
 );

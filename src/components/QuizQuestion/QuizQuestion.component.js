@@ -26,9 +26,9 @@ export default class QuizQuestion extends PureComponent {
     };
 
     handleOnSubmit = () => {
-        const { selectedAnswer, question: { id }, onSubmit } = this.props;
+        const { onSubmit } = this.props;
 
-        onSubmit({ id, selectedAnswer });
+        onSubmit();
     };
 
     render() {

@@ -17,14 +17,19 @@ export default class Quiz extends PureComponent {
     static propTypes = {
         state: PropTypes.string.isRequired,
         onSubmit: PropTypes.func.isRequired,
+        quizComplete: PropTypes.bool.isRequired,
     };
 
     handleOnSubmit = (e) => {
-        const { onSubmit } = this.props;
+        const { onSubmit, quizComplete } = this.props;
 
         e.preventDefault();
 
-        onSubmit();
+        if (!quizComplete) {
+            return false;
+        } else {
+            onSubmit();
+        }
     };
 
     render() {
