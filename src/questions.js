@@ -114,7 +114,7 @@ export const questions = [
         question: `Given this were running in the browser, what would \`x\` be equal to shown below?`,
         incorrectFeedback: `All anonymous functions belong to the global object (in the browser, that's window). What determines a functions this (aka "function context"), is how it's *invoked*.`,
         codeFigure: `var myObject = {\n  method: function(){\n    return this;\n  }\n}\n\nvar e = myObject.method;\nvar x = e();`,
-        answers: [`undefined`, `window`, `myObject`, `error`],
+        answers: [`undefined`, `Window`, `myObject`, `error`],
         answerType: `code`,
         correctAnswer: 2,
     },
@@ -174,7 +174,7 @@ export const questions = [
         ],
         answerType: `markdown`,
         correctAnswer: 3,
-    }
+    },
 ].map((question, i) => ({
     ...question,
     index: i + 1,

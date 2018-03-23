@@ -69,7 +69,7 @@ export default class CompletedResultsList extends PureComponent {
                                     className={`CompletedResultsList__question-title`}
                                 >
                                     <Question
-                                        question={`${i + 1}. ${question}`}
+                                        question={`${i + 1}\\. ${question}`}
                                     />
                                 </h2>
                                 <div

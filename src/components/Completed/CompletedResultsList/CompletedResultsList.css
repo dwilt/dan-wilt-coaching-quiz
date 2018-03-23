@@ -7,8 +7,6 @@
     margin: 0 0 48px;
 }
 
-
-
 .CompletedResultsList__container {
     padding-left: 48px;
     background-repeat: no-repeat;
@@ -69,8 +67,12 @@
     .CompletedResultsList__answers-wrapper {
         grid-template-columns: auto;
         grid-row-gap: 24px;
-        margin-bottom: 0;
     }
+}
+
+.CompletedResultsList__your-answer,
+.CompletedResultsList__correct-answer {
+    overflow-x: auto;
 }
 
 .CompletedResultsList__answers-wrapper.--no-grid {

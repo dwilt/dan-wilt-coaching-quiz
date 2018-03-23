@@ -72,7 +72,7 @@ function* addAnswer() {
     const id = yield select(quizQuestionIdSelector);
     const answer = yield select(quizSelectedAnswerSelector);
 
-    yield put(setSelectedAnswerAction());
+    // yield put(setSelectedAnswerAction());
 
     yield put(
         addAnswerAction({

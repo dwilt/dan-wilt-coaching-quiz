@@ -45,3 +45,22 @@ export const quizQuestionIdSelector = createSelector(
     [quizAnswersSelector],
     (answers) => questions[answers.length].id
 );
+
+export const quizScoreSelector = createSelector(
+    [quizAnswersSelector],
+    (answers) => {
+        const totalPossibleScore = questions.reduce(
+            (totalScore, { scoreValue }) => totalScore + scoreValue,
+            0
+        );
+        const actualScore = answers.reduce((totalScore, { id, answer }) => {
+            const question = questions.find((qu) => qu.id === id);
+
+            return question.correctAnswer === answer
+                ? totalScore + question.scoreValue
+                : totalScore;
+        }, 0);
+
+        return actualScore / totalPossibleScore * 100;
+    }
+);
