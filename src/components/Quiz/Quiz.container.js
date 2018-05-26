@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { quizStateSelector, quizIsCompleteSelector } from "selectors";
+import { quizStateSelector, quizIsCompleteSelector } from "src/selectors";
 
-import { submitQuizAction as onSubmit } from "store/quiz/quiz.actions";
+import { submitQuizAction as onSubmit } from "src/store/quiz/quiz.actions";
 
 import Quiz from "./Quiz.component";
 

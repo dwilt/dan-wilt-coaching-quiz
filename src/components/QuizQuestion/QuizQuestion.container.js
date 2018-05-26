@@ -4,9 +4,9 @@ import {
     quizSelectedAnswerSelector,
     quizNameSelector,
     quizAnswersSelector,
-} from "selectors";
+} from "src/selectors";
 
-import { submitAnswerAction as onSubmit } from "store/quiz/quiz.actions";
+import { submitAnswerAction as onSubmit } from "src/store/quiz/quiz.actions";
 
 import QuizQuestion from "./QuizQuestion.component";
 

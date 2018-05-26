@@ -1,6 +1,6 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, take } from "redux-saga/effects";
 
-import { submitQuizAction } from "store/quiz/quiz.actions";
+import { submitQuizAction } from "src/store/quiz/quiz.actions";
 
 export const setStateAction = (state) => ({
     type: `SET_STATE`,
@@ -9,10 +9,8 @@ export const setStateAction = (state) => ({
     },
 });
 
-function* submitQuiz() {
-    yield put(setStateAction(`completed`));
-}
-
 export default function*() {
-    yield takeEvery(submitQuizAction().type, submitQuiz);
+    yield take(submitQuizAction().type);
+
+    yield put(setStateAction(`completed`));
 }

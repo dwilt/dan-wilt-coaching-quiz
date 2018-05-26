@@ -6,9 +6,9 @@ import classNames from "classnames";
 
 import Markdown from "react-remarkable";
 
-import { questions } from "questions";
+import { questions } from "src/questions";
 
-import { Question, Answer, CodeFigure } from "components";
+import { Question, Answer, CodeFigure } from "src/components";
 
 import "./CompletedResultsList.css";
 

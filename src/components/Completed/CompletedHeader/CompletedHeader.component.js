@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 
 import PropTypes from "prop-types";
 
+import { ratings, getRating } from "firebaseFunctions/services/scoring.service";
+
 import "./CompletedHeader.css";
 
 export default class CompletedHeader extends PureComponent {
@@ -16,11 +18,13 @@ export default class CompletedHeader extends PureComponent {
         let subtitle = null;
         let feedback = null;
 
-        if (score === 100) {
+        const rating = getRating(score);
+
+        if (rating === ratings.EXPERT) {
             subtitle = `Perfect! You're ready to build mobile apps.`;
             feedback = `With a score like that, you're a great candidate to pick up a tool like <a href="https://facebook.github.io/react-native/">React Native</a> and start building native applications.`;
-        } else if (score > 80) {
-            subtitle = `Good Job! You're proficient in Javascript`;
+        } else if (rating === ratings.PROFICIENT) {
+            subtitle = `Good Job! You're proficient in Javascript.`;
             feedback = `Although you didn't get a perfect score, you have a decent understanding of the language. With a bit of help, you'd be well on your way to building out mobile applications with a tool like <a href="https://facebook.github.io/react-native/">React Native</a>.`;
         } else {
             subtitle = `You've got a bit of learning to do before you're ready to build mobile apps`;

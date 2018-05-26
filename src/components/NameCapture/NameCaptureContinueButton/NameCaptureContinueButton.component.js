@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 
 import PropTypes from "prop-types";
 
-import { ActionButton } from "components";
+import { ActionButton } from "src/components";
 
 export default class NameCaptureContinueButton extends PureComponent {
     static propTypes = {

@@ -1,6 +1,6 @@
-import { call, put, select, takeEvery } from "redux-saga/effects";
+import { call, put, select, take } from "redux-saga/effects";
 
-import { version } from "questions";
+import { version, questions } from "src/questions";
 
 import {
     quizAnswersSelector,
@@ -8,11 +8,12 @@ import {
     quizEmailSelector,
     quizSelectedAnswerSelector,
     quizQuestionIdSelector,
-    quizIsCompleteSelector,
-} from "selectors";
+    quizScoreSelector,
+} from "src/selectors";
 
-import { fireFetch } from "services/firebase.service";
-import sendSlackMessage from "services/slack.service";
+import { fireFetch } from "src/services/firebase.service";
+
+import { getRating } from "firebaseFunctions/services/scoring.service";
 
 export const setStateAction = (state) => ({
     type: `SET_QUIZ_STATE`,
@@ -49,13 +50,6 @@ export const addAnswerAction = (answer) => ({
     },
 });
 
-export const setQuestionIdAction = (questionId) => ({
-    type: `SET_QUIZ_QUESTION_ID`,
-    payload: {
-        questionId,
-    },
-});
-
 export const submitAnswerAction = () => ({
     type: `SUBMIT_SELECTED_ANSWER`,
 });
@@ -82,44 +76,42 @@ function* addAnswer() {
     );
 
     yield call(window.scrollTo, 0, 0);
-
-    const quizComplete = yield select(quizIsCompleteSelector);
-
-    if (quizComplete) {
-        yield put(setStateAction(`emailCapture`));
-    }
-}
-
-function* submitName() {
-    yield put(setStateAction(`question`));
 }
 
 function* submitQuiz() {
     const answers = yield select(quizAnswersSelector);
     const name = yield select(quizNameSelector);
     const email = yield select(quizEmailSelector);
+    const score = yield select(quizScoreSelector);
 
+    const rating = getRating(score);
     const timestamp = new Date().toISOString();
 
-    try {
-        yield call(fireFetch, `addResult`, {
-            version,
-            name,
-            email,
-            answers,
-            timestamp,
-        });
-
-        yield call(sendSlackMessage, {
-            text: `New quiz submission from ${name}: ${email}`,
-        });
-    } catch (e) {
-        console.log(e);
-    }
+    yield call(fireFetch, `submitQuiz`, {
+        name,
+        email,
+        rating,
+        answers,
+        timestamp,
+        version,
+        score,
+    });
 }
 
 export default function*() {
-    yield takeEvery(submitQuizAction().type, submitQuiz);
-    yield takeEvery(submitNameAction().type, submitName);
-    yield takeEvery(submitAnswerAction().type, addAnswer);
+    yield take(submitNameAction().type);
+
+    yield put(setStateAction(`question`));
+
+    for (let i = 0; i < questions.length; i++) {
+        yield take(submitAnswerAction().type);
+
+        yield* addAnswer();
+    }
+
+    yield put(setStateAction(`emailCapture`));
+
+    yield take(submitQuizAction().type);
+
+    yield* submitQuiz();
 }

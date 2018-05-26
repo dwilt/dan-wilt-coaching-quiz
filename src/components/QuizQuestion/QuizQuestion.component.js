@@ -1,6 +1,11 @@
 import React, { PureComponent } from "react";
 
-import { QuestionAnswer, ActionButton, CodeFigure, Question } from "components";
+import {
+    QuestionAnswer,
+    ActionButton,
+    CodeFigure,
+    Question,
+} from "src/components";
 
 import PropTypes from "prop-types";
 

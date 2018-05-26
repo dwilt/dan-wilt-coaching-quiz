@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 
 import PropTypes from "prop-types";
 
-import { Answer } from "components";
+import { Answer } from "src/components";
 
 export default class QuestionAnswer extends PureComponent {
     static propTypes = {

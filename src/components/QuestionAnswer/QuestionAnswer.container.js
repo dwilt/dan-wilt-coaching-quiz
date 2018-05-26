@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 
-import { quizSelectedAnswerSelector } from "selectors";
+import { quizSelectedAnswerSelector } from "src/selectors";
 
 import {
     setSelectedAnswerAction as onChange,
     submitAnswerAction as onEnterPress,
-} from "store/quiz/quiz.actions";
+} from "src/store/quiz/quiz.actions";
 
 import QuestionAnswer from "./QuestionAnswer.component";
 

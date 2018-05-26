@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { questions } from "questions";
+import { questions } from "src/questions";
 
-import { quizAnswersSelector } from "selectors";
+import { quizAnswersSelector } from "src/selectors";
 
 import QuizProgressIndicator from "./QuizProgressIndicator.component";
 

@@ -1,6 +1,9 @@
 import React, { PureComponent } from "react";
 
-import { EmailCaptureEmailInput, EmailCaptureContinueButton } from "components";
+import {
+    EmailCaptureEmailInput,
+    EmailCaptureContinueButton,
+} from "src/components";
 
 import "./EmailCapture.css";
 

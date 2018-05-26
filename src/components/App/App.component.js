@@ -3,7 +3,7 @@ import "./App.css";
 
 import PropTypes from "prop-types";
 
-import { Quiz, Completed } from "components";
+import { Quiz, Completed } from "src/components";
 
 class App extends Component {
     static propTypes = {

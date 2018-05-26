@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { stateSelector } from "selectors";
+import { stateSelector } from "src/selectors";
 
 import App from "./App.component";
 

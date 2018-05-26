@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { quizNameSelector, quizScoreSelector } from "selectors";
+import { quizNameSelector, quizScoreSelector } from "src/selectors";
 
 import CompletedHeader from "./CompletedHeader.component";
 

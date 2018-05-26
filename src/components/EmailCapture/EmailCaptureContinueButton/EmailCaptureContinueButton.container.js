@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { quizEmailIsValidSelector } from "selectors";
+import { quizEmailIsValidSelector } from "src/selectors";
 
 import EmailCaptureContinueButton from "./EmailCaptureContinueButton.component";
 

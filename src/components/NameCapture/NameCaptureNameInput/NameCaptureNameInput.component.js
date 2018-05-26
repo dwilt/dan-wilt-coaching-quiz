@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 
 import PropTypes from "prop-types";
 
-import { TextInput } from "components";
+import { TextInput } from "src/components";
 
 import "./NameCaptureNameInput.css";
 

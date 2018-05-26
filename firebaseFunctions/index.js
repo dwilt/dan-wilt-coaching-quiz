@@ -4,14 +4,18 @@ const cors = require(`cors`)({
     origin: true
 });
 
-import { addResult } from "./firestore";
+import { submitQuiz } from "./firestore";
 
-exports.addResult = functions.https.onRequest(async (req, res) => {
-    await addResult(req.body);
+async function submitQuizHandler(req, res) {
+    await submitQuiz(req.body);
 
-    return cors(req, res, () => {
-        res.send({
-            stored: true
-        });
+    res.send({
+        submitted: true
+    });
+}
+
+exports.submitQuiz = functions.https.onRequest((req, res) => {
+    cors(req, res, async () => {
+        await submitQuizHandler(req, res);
     });
 });

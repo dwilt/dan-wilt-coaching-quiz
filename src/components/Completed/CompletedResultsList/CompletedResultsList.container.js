@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { quizAnswersSelector } from "selectors";
+import { quizAnswersSelector } from "src/selectors";
 
 import CompletedResultsList from "./CompletedResultsList.component";
 

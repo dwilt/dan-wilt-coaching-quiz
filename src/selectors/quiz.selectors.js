@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-import { questions } from "questions";
+import { questions } from "src/questions";
 
-import { isValidEmail } from "helpers";
+import { isValidEmail } from "src/helpers";
 
 const quizSelector = (state) => state.quiz;
 

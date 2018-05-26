@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { quizNameSelector } from "selectors";
+import { quizNameSelector } from "src/selectors";
 
-import { submitNameAction as onClick } from "store/quiz/quiz.actions";
+import { submitNameAction as onClick } from "src/store/quiz/quiz.actions";
 
 import NameCaptureContinueButton from "./NameCaptureContinueButton.component";
 

@@ -1,6 +1,9 @@
 import React, { PureComponent } from "react";
 
-import { NameCaptureNameInput, NameCaptureContinueButton } from "components";
+import {
+    NameCaptureNameInput,
+    NameCaptureContinueButton,
+} from "src/components";
 
 import "./NameCapture.css";
 

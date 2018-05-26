@@ -6,7 +6,7 @@ import {
     setEmailAction,
 } from "./quiz.actions";
 
-import { createReducer } from "helpers";
+import { createReducer } from "src/helpers";
 
 export default createReducer(
     {

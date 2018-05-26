@@ -7,9 +7,9 @@ import {
     QuizProgressIndicator,
     NameCapture,
     EmailCapture,
-} from "components";
+} from "src/components";
 
-import { questions } from "questions";
+import { questions } from "src/questions";
 
 import "./Quiz.css";
 

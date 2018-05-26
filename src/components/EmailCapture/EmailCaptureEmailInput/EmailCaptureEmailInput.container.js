@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import { quizEmailSelector } from "selectors";
+import { quizEmailSelector } from "src/selectors";
 
-import { setEmailAction as onChange } from "store/quiz/quiz.actions";
+import { setEmailAction as onChange } from "src/store/quiz/quiz.actions";
 
 import EmailCaptureEmailInput from "./EmailCaptureEmailInput.component";
 

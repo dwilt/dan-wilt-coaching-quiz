@@ -4,9 +4,9 @@ import "./index.css";
 
 import { Provider } from "react-redux";
 
-import store from "store";
+import store from "src/store";
 
-import { App } from "components";
+import { App } from "src/components";
 
 import registerServiceWorker from "./registerServiceWorker";
 

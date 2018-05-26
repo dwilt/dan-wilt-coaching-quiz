@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import { CompletedHeader, Results } from "components";
+import { CompletedHeader, Results } from "src/components";
 
 import "./Completed.css";
 

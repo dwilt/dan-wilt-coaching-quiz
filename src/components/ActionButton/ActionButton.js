@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { ActivityIndicator } from "components";
+import { ActivityIndicator } from "src/components";
 
 import PropTypes from "prop-types";
 

@@ -26,10 +26,10 @@
     "reselect": "^3.0.1"
   },
   "scripts": {
-    "start": "NODE_PATH=src react-scripts start",
-    "build": "NODE_PATH=src react-scripts build",
-    "test": "NODE_PATH=src react-scripts test --env=jsdom",
-    "eject": "NODE_PATH=src react-scripts eject",
+    "start": "NODE_PATH=./ react-scripts start",
+    "build": "NODE_PATH=./ react-scripts build",
+    "test": "NODE_PATH=./ react-scripts test --env=jsdom",
+    "eject": "NODE_PATH=./ react-scripts eject",
     "format": "prettier-eslint --write \"src/**/*.js\"  --eslint-config-path .eslintrc",
     "sync-questions": "curl -X POST https://us-central1-dan-wilt-coaching-assessmen.cloudfunctions.net/createQuestions -H \"Content-Type: application/json\" -d @./src/questions.json",
     "deploy-firebase-functions": "cd firebaseFunctions; npm run deploy",
