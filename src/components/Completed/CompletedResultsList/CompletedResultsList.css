@@ -11,7 +11,7 @@
     padding-left: 48px;
     background-repeat: no-repeat;
     background-size: 24px 24px;
-    background-position: left top;
+    background-position: left 3px;
     max-width: 800px;
 }
 
@@ -19,7 +19,6 @@
     .CompletedResultsList__container {
         padding-left: 30px;
         background-size: 20px 20px;
-        background-position: left 5px;
     }
 }
 
