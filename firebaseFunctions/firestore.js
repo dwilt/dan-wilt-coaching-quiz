@@ -29,14 +29,18 @@ async function sendSlackMessage({ name, email }) {
 }
 
 export async function submitQuiz(result) {
-    const { name, email, rating } = result;
-
-    await Promise.all([
+    const { subscribedToMailingList, ...rest } = result;
+    
+    const actions = [
         admin
             .firestore()
             .collection(`results`)
-            .add(result),
-        subscribeToMailchimp({ name, email, rating }),
-        sendSlackMessage({ name, email })
-    ]);
+            .add(rest)
+    ];
+
+    if (subscribedToMailingList) {
+        actions.push(subscribeToMailchimp(rest), sendSlackMessage(rest));
+    }
+
+    await Promise.all(actions);
 }

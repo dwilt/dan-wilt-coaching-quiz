@@ -9,6 +9,7 @@ import {
     quizSelectedAnswerSelector,
     quizQuestionIdSelector,
     quizScoreSelector,
+    subscribedToMailingListSelector
 } from "src/selectors";
 
 import { fireFetch } from "src/services/firebase.service";
@@ -50,6 +51,14 @@ export const addAnswerAction = (answer) => ({
     },
 });
 
+export const subscribeToMailingListAction = () => ({
+    type: `SUBSCRIBE_TO_MAILING_LIST`,
+});
+
+export const unsubscribeToMailingListAction = () => ({
+    type: `UNSUBSCRIBE_TO_MAILING_LIST`,
+});
+
 export const submitAnswerAction = () => ({
     type: `SUBMIT_SELECTED_ANSWER`,
 });
@@ -83,6 +92,7 @@ function* submitQuiz() {
     const name = yield select(quizNameSelector);
     const email = yield select(quizEmailSelector);
     const score = yield select(quizScoreSelector);
+    const subscribedToMailingList = yield select(subscribedToMailingListSelector);
 
     const rating = getRating(score);
     const timestamp = new Date().toISOString();
@@ -95,6 +105,7 @@ function* submitQuiz() {
         timestamp,
         version,
         score,
+        subscribedToMailingList,
     });
 }
 

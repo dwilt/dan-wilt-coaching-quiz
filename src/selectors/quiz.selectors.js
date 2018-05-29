@@ -21,10 +21,7 @@ export const quizAnswersSelector = createSelector(
     (quiz) => quiz.answers
 );
 
-export const quizNameSelector = createSelector(
-    quizSelector,
-    (quiz) => quiz.name
-);
+export const quizNameSelector = createSelector(quizSelector, (quiz) => quiz.name);
 
 export const quizEmailSelector = createSelector(
     quizSelector,
@@ -44,6 +41,11 @@ export const quizIsCompleteSelector = createSelector(
 export const quizQuestionIdSelector = createSelector(
     [quizAnswersSelector],
     (answers) => questions[answers.length].id
+);
+
+export const subscribedToMailingListSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.subscribedToMailingList
 );
 
 export const quizScoreSelector = createSelector(

@@ -22,7 +22,7 @@ async function addUserToLists(firstName, email, lists = []) {
         // );
 
         await Promise.all(
-            lists.map(list => {
+            lists.map((list) => {
                 return axios({
                     method: "post",
                     url: `https://us17.api.mailchimp.com/3.0/lists/${list}/members`,
