@@ -1,31 +1,31 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
-import { questions } from "src/questions";
+import { questions } from 'src/questions';
 
-import { isValidEmail } from "src/helpers";
+import { isValidEmail } from 'src/helpers';
 
-const quizSelector = (state) => state.quiz;
+const quizSelector = ({ quiz }) => quiz;
 
 export const quizStateSelector = createSelector(
     quizSelector,
-    (quiz) => quiz.state
+    ({ state }) => state
 );
 
 export const quizSelectedAnswerSelector = createSelector(
     quizSelector,
-    (quiz) => quiz.selectedAnswer
+    ({ selectedAnswer }) => selectedAnswer
 );
 
 export const quizAnswersSelector = createSelector(
     quizSelector,
-    (quiz) => quiz.answers
+    ({ answers }) => answers
 );
 
-export const quizNameSelector = createSelector(quizSelector, (quiz) => quiz.name);
+export const quizNameSelector = createSelector(quizSelector, ({ name }) => name);
 
 export const quizEmailSelector = createSelector(
     quizSelector,
-    (quiz) => quiz.email
+    ({ email }) => email
 );
 
 export const quizEmailIsValidSelector = createSelector(
@@ -45,7 +45,7 @@ export const quizQuestionIdSelector = createSelector(
 
 export const subscribedToMailingListSelector = createSelector(
     [quizSelector],
-    (quiz) => quiz.subscribedToMailingList
+    ({ subscribedToMailingList }) => subscribedToMailingList
 );
 
 export const quizScoreSelector = createSelector(

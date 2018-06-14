@@ -4,20 +4,19 @@ import {
     addAnswerAction,
     setNameAction,
     setEmailAction,
-    subscribeToMailingListAction,
-    unsubscribeToMailingListAction,
-} from "./quiz.actions";
+    toggleSubscribedToMailingListAction,
+} from './quiz.actions';
 
-import { createReducer } from "src/helpers";
+import { createReducer } from 'src/helpers';
 
 export default createReducer(
     {
-        state: `nameCapture`,
+        state: 'nameCapture',
         selectedAnswer: null,
         answers: [],
-        email: ``,
-        name: ``,
-        subscribedToMailingList: false,
+        email: '',
+        name: '',
+        subscribedToMailingList: true,
     },
     {
         [setStateAction().type]: (st, { state }) => ({
@@ -40,13 +39,9 @@ export default createReducer(
             ...st,
             email,
         }),
-        [subscribeToMailingListAction().type]: (st) => ({
+        [toggleSubscribedToMailingListAction().type]: (st) => ({
             ...st,
-            subscribedToMailingList: true,
-        }),
-        [unsubscribeToMailingListAction().type]: (st) => ({
-            ...st,
-            subscribedToMailingList: false,
+            subscribedToMailingList: !st.subscribedToMailingList,
         }),
     }
 );

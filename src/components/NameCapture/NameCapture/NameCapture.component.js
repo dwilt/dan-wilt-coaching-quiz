@@ -3,6 +3,7 @@ import React, { PureComponent } from "react";
 import {
     NameCaptureNameInput,
     NameCaptureContinueButton,
+    SubscribeToMailingListCheckbox,
 } from "src/components";
 
 import "./NameCapture.css";
@@ -17,6 +18,7 @@ export default class NameCapture extends PureComponent {
                     </p>
                     <div className={`NameCapture__form-wrapper`}>
                         <NameCaptureNameInput />
+                        <SubscribeToMailingListCheckbox/>
                         <div className={`NameCapture__continue-button`}>
                             <NameCaptureContinueButton />
                         </div>

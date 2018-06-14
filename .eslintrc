@@ -180,7 +180,7 @@
         "no-trailing-spaces":["error"],         // disallow trailing whitespace at the end of lines
         "no-underscore-dangle":["off"],       // disallow dangling underscores in identifiers
         "no-mixed-spaces-and-tabs":["error"],   // disallow mixed spaces and tabs for indentation
-        "quotes": ["error", "backtick"], // specify whether double or single quotes should be used
+        "quotes": ["error", "single"], // specify whether double or single quotes should be used
         "quote-props":["off"],                // require quotes around object literal property names (off by default)
         "semi":["error"],                       // require or disallow use of semicolons instead of ASI
         "sort-vars":["off"],                  // sort variables within the same declaration block (off by default)

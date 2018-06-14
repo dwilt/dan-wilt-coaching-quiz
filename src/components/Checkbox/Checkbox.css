@@ -1,0 +1,27 @@
+.Checkbox__container {
+    display: flex;
+}
+
+.Checkbox__input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    border: 2px solid #F1F1F1;
+}
+
+.Checkbox_label {
+    color: #333;
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
+
+.Checkbox__check {
+    width: 18px;
+    height: 14px;
+}

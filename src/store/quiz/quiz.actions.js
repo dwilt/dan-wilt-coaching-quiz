@@ -51,12 +51,8 @@ export const addAnswerAction = (answer) => ({
     },
 });
 
-export const subscribeToMailingListAction = () => ({
-    type: `SUBSCRIBE_TO_MAILING_LIST`,
-});
-
-export const unsubscribeToMailingListAction = () => ({
-    type: `UNSUBSCRIBE_TO_MAILING_LIST`,
+export const toggleSubscribedToMailingListAction = () => ({
+    type: `TOGGLE_SUBSCRIBED_TO_MAILING_LIST`,
 });
 
 export const submitAnswerAction = () => ({
