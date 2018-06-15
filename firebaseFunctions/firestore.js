@@ -10,8 +10,17 @@ import slack from "./services/slack.service";
 
 admin.initializeApp(functions.config().firebase);
 
-async function subscribeToMailchimp({ name, email, rating }) {
+async function subscribeToMailchimp({
+    name,
+    email,
+    rating,
+    subscribedToMailingList
+}) {
     const lists = [mailchimp.mailingLists.javascriptQuizRespondants];
+
+    if (subscribedToMailingList) {
+        lists.push(mailchimp.mailingLists.danWiltCoachingUpdates);
+    }
 
     if (rating === ratings.EXPERT) {
         lists.push(mailchimp.mailingLists.mobileDevReady);
@@ -24,23 +33,23 @@ async function subscribeToMailchimp({ name, email, rating }) {
     await mailchimp.addUserToLists(name, email, lists);
 }
 
-async function sendSlackMessage({ name, email }) {
-    await slack.sendMessage(`New quiz submission from ${name}: ${email}`);
+async function sendSlackMessage({ name, email, subscribedToMailingList }) {
+    const subscribedSentence = subscribedToMailingList
+        ? "They subscribed for periodic mailing updates! 🙌"
+        : `They didn't subscribe for periodic mailing updates. 😞`;
+
+    await slack.sendMessage(
+        `${name} (${email}) just took the quiz! ${subscribedSentence}`
+    );
 }
 
 export async function submitQuiz(result) {
-    const { subscribedToMailingList, ...rest } = result;
-    
-    const actions = [
+    await Promise.all([
         admin
             .firestore()
             .collection(`results`)
-            .add(rest)
-    ];
-
-    if (subscribedToMailingList) {
-        actions.push(subscribeToMailchimp(rest), sendSlackMessage(rest));
-    }
-
-    await Promise.all(actions);
+            .add(result),
+        subscribeToMailchimp(result),
+        sendSlackMessage(result)
+    ]);
 }
