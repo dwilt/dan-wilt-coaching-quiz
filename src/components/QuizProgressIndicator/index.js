@@ -1,3 +1,3 @@
 export {
     default as QuizProgressIndicator,
-} from "./QuizProgressIndicator.container";
+} from './QuizProgressIndicator.container';

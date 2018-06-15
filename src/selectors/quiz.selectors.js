@@ -21,7 +21,10 @@ export const quizAnswersSelector = createSelector(
     ({ answers }) => answers
 );
 
-export const quizNameSelector = createSelector(quizSelector, ({ name }) => name);
+export const quizNameSelector = createSelector(
+    quizSelector,
+    ({ name }) => name
+);
 
 export const quizEmailSelector = createSelector(
     quizSelector,

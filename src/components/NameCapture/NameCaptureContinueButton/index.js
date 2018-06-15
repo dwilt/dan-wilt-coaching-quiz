@@ -1,3 +1,3 @@
 export {
     default as NameCaptureContinueButton,
-} from "./NameCaptureContinueButton.container";
+} from './NameCaptureContinueButton.container';

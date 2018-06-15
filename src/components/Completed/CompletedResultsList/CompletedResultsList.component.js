@@ -1,20 +1,20 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import Markdown from "react-remarkable";
+import Markdown from 'react-remarkable';
 
-import { questions } from "src/questions";
+import { questions } from 'src/questions';
 
-import { Question, Answer, CodeFigure } from "src/components";
+import { Question, Answer, CodeFigure } from 'src/components';
 
-import "./CompletedResultsList.css";
+import './CompletedResultsList.css';
 
-const greenCheckmark = require(`./green-checkmark.svg`);
+const greenCheckmark = require('./green-checkmark.svg');
 
-const redX = require(`./red-x.svg`);
+const redX = require('./red-x.svg');
 
 export default class CompletedResultsList extends PureComponent {
     static propTypes = {
@@ -30,7 +30,7 @@ export default class CompletedResultsList extends PureComponent {
         const { answers } = this.props;
 
         return (
-            <ol className={`CompletedResultsList`}>
+            <ol className={'CompletedResultsList'}>
                 {answers.map(({ answer, id }, i) => {
                     const {
                         question,
@@ -47,16 +47,16 @@ export default class CompletedResultsList extends PureComponent {
                     const answeredCorrectly = correctAnswer === answer;
 
                     const answersWrapperClasses = classNames(
-                        `CompletedResultsList__answers-wrapper`,
+                        'CompletedResultsList__answers-wrapper',
                         {
-                            [`--no-grid`]: !!codeFigure,
+                            ['--no-grid']: !!codeFigure,
                         }
                     );
 
                     return (
                         <li key={id}>
                             <div
-                                className={`CompletedResultsList__container`}
+                                className={'CompletedResultsList__container'}
                                 style={{
                                     backgroundImage: `url(${
                                         answeredCorrectly
@@ -66,18 +66,18 @@ export default class CompletedResultsList extends PureComponent {
                                 }}
                             >
                                 <h2
-                                    className={`CompletedResultsList__question-title`}
+                                    className={'CompletedResultsList__question-title'}
                                 >
                                     <Question
                                         question={`${i + 1}\\. ${question}`}
                                     />
                                 </h2>
                                 <div
-                                    className={`CompletedResultsList__content`}
+                                    className={'CompletedResultsList__content'}
                                 >
                                     {codeFigure && (
                                         <div
-                                            className={`CompletedResultsList__code-figure`}
+                                            className={'CompletedResultsList__code-figure'}
                                         >
                                             <CodeFigure
                                                 codeFigure={codeFigure}
@@ -85,14 +85,14 @@ export default class CompletedResultsList extends PureComponent {
                                         </div>
                                     )}
                                     <div
-                                        className={`CompletedResultsList__answers`}
+                                        className={'CompletedResultsList__answers'}
                                     >
                                         <div className={answersWrapperClasses}>
                                             <div
-                                                className={`CompletedResultsList__correct-answer`}
+                                                className={'CompletedResultsList__correct-answer'}
                                             >
                                                 <p
-                                                    className={`CompletedResultsList__answer-title`}
+                                                    className={'CompletedResultsList__answer-title'}
                                                 >
                                                     Correct Answer
                                                 </p>
@@ -100,14 +100,14 @@ export default class CompletedResultsList extends PureComponent {
                                                     answerType={answerType}
                                                     answerNumber={correctAnswer}
                                                     text={correctAnswerText}
-                                                    theme={`green`}
+                                                    theme={'green'}
                                                 />
                                             </div>
                                             <div
-                                                className={`CompletedResultsList__your-answer`}
+                                                className={'CompletedResultsList__your-answer'}
                                             >
                                                 <p
-                                                    className={`CompletedResultsList__answer-title`}
+                                                    className={'CompletedResultsList__answer-title'}
                                                 >
                                                     Your Answer
                                                 </p>
@@ -117,18 +117,18 @@ export default class CompletedResultsList extends PureComponent {
                                                     text={userAnswerText}
                                                     theme={
                                                         answeredCorrectly
-                                                            ? `green`
-                                                            : `red`
+                                                            ? 'green'
+                                                            : 'red'
                                                     }
                                                 />
                                             </div>
                                         </div>
                                         {!answeredCorrectly && (
                                             <div
-                                                className={`CompletedResultsList__feedback`}
+                                                className={'CompletedResultsList__feedback'}
                                             >
                                                 <h3
-                                                    className={`CompletedResultsList__feedback-title`}
+                                                    className={'CompletedResultsList__feedback-title'}
                                                 >
                                                     Feedback
                                                 </h3>

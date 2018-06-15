@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "./TextInput.css";
+import './TextInput.css';
 
 export default class TextInput extends PureComponent {
     static propTypes = {
@@ -15,7 +15,7 @@ export default class TextInput extends PureComponent {
     };
 
     static defaultProps = {
-        type: `text`,
+        type: 'text',
         autoFocus: false,
     };
 
@@ -38,7 +38,7 @@ export default class TextInput extends PureComponent {
     onKeyPress = ({ key }) => {
         const { onEnterPress } = this.props;
 
-        if (key === `Enter`) {
+        if (key === 'Enter') {
             onEnterPress();
         }
     };
@@ -47,12 +47,12 @@ export default class TextInput extends PureComponent {
         const { placeholder, id, onEnterPress, ...rest } = this.props;
 
         return (
-            <div className={`TextInput__container`}>
-                <label className={`visuallyhidden`} htmlFor={id}>
+            <div className={'TextInput__container'}>
+                <label className={'visuallyhidden'} htmlFor={id}>
                     {placeholder}
                 </label>
                 <input
-                    className={`TextInput`}
+                    className={'TextInput'}
                     {...rest}
                     id={id}
                     onKeyPress={onEnterPress ? this.onKeyPress : null}

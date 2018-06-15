@@ -1,1 +1,1 @@
-export { default as EmailCapture } from "./EmailCapture.component";
+export { default as EmailCapture } from './EmailCapture.component';

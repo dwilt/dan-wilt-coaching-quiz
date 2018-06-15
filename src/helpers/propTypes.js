@@ -1,3 +1,3 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-export const localePropTypes = PropTypes.oneOf([`en`]);
+export const localePropTypes = PropTypes.oneOf(['en']);

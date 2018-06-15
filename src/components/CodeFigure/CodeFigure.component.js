@@ -1,10 +1,10 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import Highlight from "react-highlight";
+import Highlight from 'react-highlight';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "./CodeFigure.css";
+import './CodeFigure.css';
 
 export default class CodeFigure extends PureComponent {
     static propTypes = {
@@ -15,8 +15,8 @@ export default class CodeFigure extends PureComponent {
         const { codeFigure } = this.props;
 
         return (
-            <div className={`CodeFigure`}>
-                <Highlight className={`javascript`}>{codeFigure}</Highlight>
+            <div className={'CodeFigure'}>
+                <Highlight className={'javascript'}>{codeFigure}</Highlight>
             </div>
         );
     }

@@ -1,1 +1,1 @@
-export { default as NameCapture } from "./NameCapture.component";
+export { default as NameCapture } from './NameCapture.component';

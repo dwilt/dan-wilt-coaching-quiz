@@ -1,1 +1,1 @@
-export { default as ActivityIndicator } from "./ActivityIndicator.component";
+export { default as ActivityIndicator } from './ActivityIndicator.component';

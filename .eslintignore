@@ -1,2 +1,4 @@
-firebaseFunctions/node_modules
+firebaseFunctions/node_modules/**/*
+functions/node_modules/**/*
+node_modules/**/*
 src/registerServiceWorker.js

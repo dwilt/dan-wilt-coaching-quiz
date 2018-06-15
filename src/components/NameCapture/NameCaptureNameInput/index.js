@@ -1,3 +1,3 @@
 export {
     default as NameCaptureNameInput,
-} from "./NameCaptureNameInput.container";
+} from './NameCaptureNameInput.container';

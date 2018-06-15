@@ -1,1 +1,1 @@
-export { default as QuestionAnswer } from "./QuestionAnswer.container";
+export { default as QuestionAnswer } from './QuestionAnswer.container';

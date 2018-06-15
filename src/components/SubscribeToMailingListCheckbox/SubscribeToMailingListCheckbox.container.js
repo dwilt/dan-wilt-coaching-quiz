@@ -6,8 +6,11 @@ import { toggleSubscribedToMailingListAction as onChange } from 'src/store/quiz/
 
 import SubscribeToMailingListCheckbox from './SubscribeToMailingListCheckbox.component';
 
-export default connect((st) => ({
-    checked: subscribedToMailingListSelector(st),
-}), {
-    onChange,
-})(SubscribeToMailingListCheckbox);
+export default connect(
+    (st) => ({
+        checked: subscribedToMailingListSelector(st),
+    }),
+    {
+        onChange,
+    }
+)(SubscribeToMailingListCheckbox);

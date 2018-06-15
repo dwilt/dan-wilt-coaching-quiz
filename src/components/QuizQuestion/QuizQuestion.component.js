@@ -1,17 +1,17 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
 import {
     QuestionAnswer,
     ActionButton,
     CodeFigure,
     Question,
-} from "src/components";
+} from 'src/components';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "./QuizQuestion.css";
+import './QuizQuestion.css';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
 export default class QuizQuestion extends PureComponent {
     static propTypes = {
@@ -23,7 +23,7 @@ export default class QuizQuestion extends PureComponent {
         question: PropTypes.shape({
             id: PropTypes.string.isRequired,
             codeFigure: PropTypes.string,
-            answerType: PropTypes.oneOf([`code`, `markdown`]),
+            answerType: PropTypes.oneOf(['code', 'markdown']),
             question: PropTypes.string.isRequired,
             answers: PropTypes.array.isRequired,
             incorrectFeedback: PropTypes.node,
@@ -49,32 +49,32 @@ export default class QuizQuestion extends PureComponent {
 
         const active = userAnswers.length + 1 === questionNumber;
 
-        const questionClasses = classNames(`QuizQuestion`, {
-            [`visuallyhidden`]: !active,
+        const questionClasses = classNames('QuizQuestion', {
+            ['visuallyhidden']: !active,
         });
 
-        const answerListClasses = classNames(`QuizQuestion__answers-list`, {
-            [`--grid`]: answerType === `code`,
+        const answerListClasses = classNames('QuizQuestion__answers-list', {
+            ['--grid']: answerType === 'code',
         });
 
         return (
             <div className={questionClasses}>
                 {questionNumber === 1 && (
                     <p
-                        className={`QuizQuestion__introduction`}
+                        className={'QuizQuestion__introduction'}
                     >{`Thanks ${name}! Let's get started...`}</p>
                 )}
                 <fieldset>
-                    <legend className={`visuallyhidden`}>{question}</legend>
-                    <div className={`QuizQuestion__question`}>
+                    <legend className={'visuallyhidden'}>{question}</legend>
+                    <div className={'QuizQuestion__question'}>
                         <Question question={question} />
                     </div>
                     {codeFigure && (
-                        <div className={`QuizQuestion__code-figure`}>
+                        <div className={'QuizQuestion__code-figure'}>
                             <CodeFigure codeFigure={codeFigure} />
                         </div>
                     )}
-                    <div className={`QuizQuestion__answers-list-wrapper`}>
+                    <div className={'QuizQuestion__answers-list-wrapper'}>
                         <ol className={answerListClasses}>
                             {answers.map((answer = {}, i) => (
                                 <li key={i}>
@@ -88,13 +88,13 @@ export default class QuizQuestion extends PureComponent {
                             ))}
                         </ol>
                     </div>
-                    <div className={`QuizQuestion__submit-button-wrapper`}>
+                    <div className={'QuizQuestion__submit-button-wrapper'}>
                         <ActionButton
-                            type={`button`}
-                            disabled={typeof selectedAnswer !== `number`}
+                            type={'button'}
+                            disabled={typeof selectedAnswer !== 'number'}
                             onClick={this.handleOnSubmit}
                         >
-                            {`Continue`}
+                            {'Continue'}
                         </ActionButton>
                     </div>
                 </fieldset>

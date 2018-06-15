@@ -1,2 +1,2 @@
-export * from "./quiz.selectors";
-export * from "./state.selectors";
+export * from './quiz.selectors';
+export * from './state.selectors';

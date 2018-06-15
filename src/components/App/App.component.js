@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { Quiz, Completed } from "src/components";
+import { Quiz, Completed } from 'src/components';
 
 class App extends Component {
     static propTypes = {
@@ -16,11 +16,11 @@ class App extends Component {
         let content = <div />;
 
         switch (state) {
-            case `completed`:
+            case 'completed':
                 content = <Completed />;
                 break;
 
-            case `quiz`:
+            case 'quiz':
                 content = <Quiz />;
                 break;
 
@@ -28,7 +28,7 @@ class App extends Component {
                 content = <div />;
         }
 
-        return <div className={`App`}>{content}</div>;
+        return <div className={'App'}>{content}</div>;
     }
 }
 

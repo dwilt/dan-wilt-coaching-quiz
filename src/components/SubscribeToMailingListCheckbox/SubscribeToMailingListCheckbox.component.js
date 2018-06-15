@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { Checkbox } from "src/components";
+import { Checkbox } from 'src/components';
 
 export default class SubscribeToMailingListCheckbox extends PureComponent {
     static propTypes = {
@@ -14,8 +14,8 @@ export default class SubscribeToMailingListCheckbox extends PureComponent {
         return (
             <Checkbox
                 {...this.props}
-                id='mailing-list-checkbox'
-                label={`Yes, I would like to receive periodic updates from Dan Wilt Coaching.`}
+                id={'mailing-list-checkbox'}
+                label={'Yes, I would like to receive periodic updates from Dan Wilt Coaching.'}
             />
         );
     }

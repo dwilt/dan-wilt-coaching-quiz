@@ -1,13 +1,13 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { quizNameSelector } from "src/selectors";
+import { quizNameSelector } from 'src/selectors';
 
 import {
     setNameAction as onChange,
     submitNameAction as onEnterPress,
-} from "src/store/quiz/quiz.actions";
+} from 'src/store/quiz/quiz.actions';
 
-import NameCaptureNameInput from "./NameCaptureNameInput.component";
+import NameCaptureNameInput from './NameCaptureNameInput.component';
 
 export default connect(
     (st) => ({

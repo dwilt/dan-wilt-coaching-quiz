@@ -1,17 +1,17 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 import {
     QuizQuestion,
     QuizProgressIndicator,
     NameCapture,
     EmailCapture,
-} from "src/components";
+} from 'src/components';
 
-import { questions } from "src/questions";
+import { questions } from 'src/questions';
 
-import "./Quiz.css";
+import './Quiz.css';
 
 export default class Quiz extends PureComponent {
     static propTypes = {
@@ -38,18 +38,18 @@ export default class Quiz extends PureComponent {
         let content = <div />;
 
         switch (state) {
-            case `nameCapture`:
+            case 'nameCapture':
                 content = <NameCapture />;
                 break;
 
-            case `emailCapture`:
+            case 'emailCapture':
                 content = <EmailCapture />;
                 break;
 
-            case `question`:
+            case 'question':
                 content = (
                     <div>
-                        <div className={`Quiz__progress-indicator`}>
+                        <div className={'Quiz__progress-indicator'}>
                             <QuizProgressIndicator />
                         </div>
                         {questions.map((question, i) => (
@@ -68,9 +68,9 @@ export default class Quiz extends PureComponent {
         }
 
         return (
-            <form onSubmit={this.handleOnSubmit} className={`Quiz`}>
-                <h1 className={`Quiz__title`}>Javascript Quiz</h1>
-                <div className={`Quiz__content-container`}>{content}</div>
+            <form onSubmit={this.handleOnSubmit} className={'Quiz'}>
+                <h1 className={'Quiz__title'}>Javascript Quiz</h1>
+                <div className={'Quiz__content-container'}>{content}</div>
             </form>
         );
     }

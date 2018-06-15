@@ -1,1 +1,1 @@
-export { default as CodeFigure } from "./CodeFigure.component";
+export { default as CodeFigure } from './CodeFigure.component';

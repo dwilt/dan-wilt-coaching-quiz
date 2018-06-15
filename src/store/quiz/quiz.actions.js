@@ -1,6 +1,6 @@
-import { call, put, select, take } from "redux-saga/effects";
+import { call, put, select, take } from 'redux-saga/effects';
 
-import { version, questions } from "src/questions";
+import { version, questions } from 'src/questions';
 
 import {
     quizAnswersSelector,
@@ -9,62 +9,62 @@ import {
     quizSelectedAnswerSelector,
     quizQuestionIdSelector,
     quizScoreSelector,
-    subscribedToMailingListSelector
-} from "src/selectors";
+    subscribedToMailingListSelector,
+} from 'src/selectors';
 
-import { fireFetch } from "src/services/firebase.service";
+import { fireFetch } from 'src/services/firebase.service';
 
-import { getRating } from "firebaseFunctions/services/scoring.service";
+import { getRating } from 'firebaseFunctions/services/scoring.service';
 
 export const setStateAction = (state) => ({
-    type: `SET_QUIZ_STATE`,
+    type: 'SET_QUIZ_STATE',
     payload: {
         state,
     },
 });
 
 export const setSelectedAnswerAction = (selectedAnswer) => ({
-    type: `SET_QUIZ_SELECTED_ANSWER`,
+    type: 'SET_QUIZ_SELECTED_ANSWER',
     payload: {
         selectedAnswer,
     },
 });
 
 export const setEmailAction = (email) => ({
-    type: `SET_QUIZ_EMAIL`,
+    type: 'SET_QUIZ_EMAIL',
     payload: {
         email,
     },
 });
 
 export const setNameAction = (name) => ({
-    type: `SET_QUIZ_NAME`,
+    type: 'SET_QUIZ_NAME',
     payload: {
         name,
     },
 });
 
 export const addAnswerAction = (answer) => ({
-    type: `ADD_ANSWER`,
+    type: 'ADD_ANSWER',
     payload: {
         answer,
     },
 });
 
 export const toggleSubscribedToMailingListAction = () => ({
-    type: `TOGGLE_SUBSCRIBED_TO_MAILING_LIST`,
+    type: 'TOGGLE_SUBSCRIBED_TO_MAILING_LIST',
 });
 
 export const submitAnswerAction = () => ({
-    type: `SUBMIT_SELECTED_ANSWER`,
+    type: 'SUBMIT_SELECTED_ANSWER',
 });
 
 export const submitNameAction = () => ({
-    type: `SUBMIT_NAME`,
+    type: 'SUBMIT_NAME',
 });
 
 export const submitQuizAction = () => ({
-    type: `SUBMIT_QUIZ_ACTION`,
+    type: 'SUBMIT_QUIZ_ACTION',
 });
 
 function* addAnswer() {
@@ -88,12 +88,14 @@ function* submitQuiz() {
     const name = yield select(quizNameSelector);
     const email = yield select(quizEmailSelector);
     const score = yield select(quizScoreSelector);
-    const subscribedToMailingList = yield select(subscribedToMailingListSelector);
+    const subscribedToMailingList = yield select(
+        subscribedToMailingListSelector
+    );
 
     const rating = getRating(score);
     const timestamp = new Date().toISOString();
 
-    yield call(fireFetch, `submitQuiz`, {
+    yield call(fireFetch, 'submitQuiz', {
         name,
         email,
         rating,
@@ -108,7 +110,7 @@ function* submitQuiz() {
 export default function*() {
     yield take(submitNameAction().type);
 
-    yield put(setStateAction(`question`));
+    yield put(setStateAction('question'));
 
     for (let i = 0; i < questions.length; i++) {
         yield take(submitAnswerAction().type);
@@ -116,7 +118,7 @@ export default function*() {
         yield* addAnswer();
     }
 
-    yield put(setStateAction(`emailCapture`));
+    yield put(setStateAction('emailCapture'));
 
     yield take(submitQuizAction().type);
 

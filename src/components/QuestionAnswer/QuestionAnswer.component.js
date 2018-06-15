@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { Answer } from "src/components";
+import { Answer } from 'src/components';
 
 export default class QuestionAnswer extends PureComponent {
     static propTypes = {
@@ -20,7 +20,7 @@ export default class QuestionAnswer extends PureComponent {
             <Answer
                 {...this.props}
                 theme={
-                    selectedAnswer === answerNumber ? `blue-outline` : `none`
+                    selectedAnswer === answerNumber ? 'blue-outline' : 'none'
                 }
             />
         );

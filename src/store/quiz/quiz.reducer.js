@@ -16,7 +16,7 @@ export default createReducer(
         answers: [],
         email: '',
         name: '',
-        subscribedToMailingList: true,
+        subscribedToMailingList: false,
     },
     {
         [setStateAction().type]: (st, { state }) => ({

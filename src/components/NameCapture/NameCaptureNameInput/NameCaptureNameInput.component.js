@@ -1,10 +1,10 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { TextInput } from "src/components";
+import { TextInput } from 'src/components';
 
-import "./NameCaptureNameInput.css";
+import './NameCaptureNameInput.css';
 
 export default class NameCaptureNameInput extends PureComponent {
     static propTypes = {
@@ -17,8 +17,8 @@ export default class NameCaptureNameInput extends PureComponent {
         return (
             <TextInput
                 {...this.props}
-                id={`name-input`}
-                placeholder={`First Name`}
+                id={'name-input'}
+                placeholder={'First Name'}
                 autoFocus={true}
             />
         );

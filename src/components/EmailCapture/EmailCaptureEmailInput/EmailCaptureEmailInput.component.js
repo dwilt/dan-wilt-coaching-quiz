@@ -1,10 +1,10 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import { TextInput } from "src/components";
+import { TextInput } from 'src/components';
 
-import "./EmailCaptureEmailInput.css";
+import './EmailCaptureEmailInput.css';
 
 export default class EmailCaptureEmailInput extends PureComponent {
     static propTypes = {
@@ -16,8 +16,8 @@ export default class EmailCaptureEmailInput extends PureComponent {
         return (
             <TextInput
                 {...this.props}
-                id={`email-input`}
-                placeholder={`Email Address`}
+                id={'email-input'}
+                placeholder={'Email Address'}
                 autoFocus={true}
             />
         );

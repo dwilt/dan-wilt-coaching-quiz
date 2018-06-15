@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./ActionButton.js";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './ActionButton.js';
 
-it(`renders without crashing`, () => {
-    const div = document.createElement(`div`);
+it('renders without crashing', () => {
+    const div = document.createElement('div');
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
 });

@@ -1,22 +1,22 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import Highlight from "react-highlight";
+import Highlight from 'react-highlight';
 
-import Markdown from "react-remarkable";
+import Markdown from 'react-remarkable';
 
-import "highlight.js/styles/github-gist.css";
+import 'highlight.js/styles/github-gist.css';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "./Answer.css";
+import './Answer.css';
 
-import classNames from "classnames";
+import classNames from 'classnames';
 
 const letterMap = {
-    1: `a`,
-    2: `b`,
-    3: `c`,
-    4: `d`,
+    1: 'a',
+    2: 'b',
+    3: 'c',
+    4: 'd',
 };
 
 export default class Answer extends PureComponent {
@@ -26,15 +26,15 @@ export default class Answer extends PureComponent {
         selectedAnswer: PropTypes.number,
         text: PropTypes.string.isRequired,
         answerType: PropTypes.string.isRequired,
-        theme: PropTypes.oneOf([`none`, `green`, `red`, `blue-outline`])
+        theme: PropTypes.oneOf(['none', 'green', 'red', 'blue-outline'])
             .isRequired,
         onChange: PropTypes.func,
         onEnterPress: PropTypes.func,
     };
 
     static defaultProps = {
-        theme: `none`,
-        answerType: `markdown`,
+        theme: 'none',
+        answerType: 'markdown',
     };
 
     handleOnChange = () => {
@@ -46,7 +46,7 @@ export default class Answer extends PureComponent {
     onKeyPress = ({ key }) => {
         const { onEnterPress } = this.props;
 
-        if (key === `Enter`) {
+        if (key === 'Enter') {
             onEnterPress();
         }
     };
@@ -66,34 +66,34 @@ export default class Answer extends PureComponent {
         const answerIsSelected = answerNumber === selectedAnswer;
 
         const textEl =
-            answerType === `code` ? (
-                <Highlight className={`javascript`}>{text}</Highlight>
+            answerType === 'code' ? (
+                <Highlight className={'javascript'}>{text}</Highlight>
             ) : (
                 <Markdown>{text}</Markdown>
             );
 
         const radioId = `${questionId}-${answerNumber}`;
 
-        const containerClasses = classNames(`Answer`, `--theme-${theme}`);
+        const containerClasses = classNames('Answer', `--theme-${theme}`);
 
         const content = (
             <div className={containerClasses}>
-                <span className={`Answer__question-number`} aria-hidden={true}>
+                <span className={'Answer__question-number'} aria-hidden={true}>
                     {letterMap[answerNumber]}
                 </span>
                 {onChange && (
                     <input
-                        className={`visuallyhidden`}
+                        className={'visuallyhidden'}
                         value={questionId}
                         checked={answerIsSelected}
                         onKeyPress={onEnterPress ? this.onKeyPress : null}
                         onChange={this.handleOnChange}
-                        type={`radio`}
+                        type={'radio'}
                         name={questionId}
                         id={radioId}
                     />
                 )}
-                <div className={`Answer__text`}>{textEl}</div>
+                <div className={'Answer__text'}>{textEl}</div>
             </div>
         );
 

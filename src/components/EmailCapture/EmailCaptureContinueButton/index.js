@@ -1,3 +1,3 @@
 export {
     default as EmailCaptureContinueButton,
-} from "./EmailCaptureContinueButton.container";
+} from './EmailCaptureContinueButton.container';

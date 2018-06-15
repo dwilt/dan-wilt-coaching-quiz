@@ -15,6 +15,10 @@
     border: 2px solid #F1F1F1;
 }
 
+.Checkbox__input-container.focused {
+    border-color: var(--blue)
+}
+
 .Checkbox_label {
     color: #333;
     font-size: 1.4rem;

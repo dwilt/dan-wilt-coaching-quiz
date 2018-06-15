@@ -1,10 +1,10 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 
-import Markdown from "react-remarkable";
+import Markdown from 'react-remarkable';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import "./Question.css";
+import './Question.css';
 
 export default class Question extends PureComponent {
     static propTypes = {
@@ -15,7 +15,7 @@ export default class Question extends PureComponent {
         const { question } = this.props;
 
         return (
-            <div className={`Question`} aria-hidden={true}>
+            <div className={'Question'} aria-hidden={true}>
                 <Markdown>{question}</Markdown>
             </div>
         );

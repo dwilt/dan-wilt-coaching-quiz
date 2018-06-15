@@ -1,3 +1,3 @@
 export {
     default as EmailCaptureEmailInput,
-} from "./EmailCaptureEmailInput.container";
+} from './EmailCaptureEmailInput.container';

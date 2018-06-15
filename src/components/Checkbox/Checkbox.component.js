@@ -1,4 +1,7 @@
-import React, { PureComponent } from 'react';
+// @flow
+import * as React from 'react';
+
+import classnames from 'classnames';
 
 import PropTypes from 'prop-types';
 
@@ -6,7 +9,21 @@ import './Checkbox.css';
 
 const greenCheckmark = require('./check.svg');
 
-export default class Checkbox extends PureComponent {
+type CheckboxProps = {
+    onChange: Function,
+    label: string,
+    id: string,
+    checked: boolean,
+};
+
+type CheckboxState = {
+    focused: boolean,
+};
+
+export default class Checkbox extends React.PureComponent<
+    CheckboxProps,
+    CheckboxState
+    > {
     static propTypes = {
         onChange: PropTypes.func.isRequired,
         label: PropTypes.string.isRequired,
@@ -18,22 +35,47 @@ export default class Checkbox extends PureComponent {
         checked: false,
     };
 
-    handleOnChange = ({ target: { checked } }) => {
+    state = {
+        focused: false,
+    };
+
+    handleOnChange = ({
+        target: { checked },
+    }: SyntheticInputEvent<HTMLInputElement>) => {
         const { onChange } = this.props;
 
         onChange(checked);
     };
 
+    onFocus = () => {
+        this.setState({
+            focused: true,
+        });
+    };
+
+    onBlur = () => {
+        this.setState({
+            focused: false,
+        });
+    };
+
     render() {
         const { id, checked, label } = this.props;
+        const { focused } = this.state;
+
+        const inputContainerStyles = classnames('Checkbox__input-container', {
+            focused,
+        });
 
         return (
             <label htmlFor={id} className={'Checkbox__container'}>
-                <div className={'Checkbox__input-container'}>
+                <div className={inputContainerStyles}>
                     <input
                         type={'checkbox'}
                         className={'visuallyhidden'}
                         id={id}
+                        onFocus={this.onFocus}
+                        onBlur={this.onBlur}
                         onChange={this.handleOnChange}
                         checked={checked}
                     />

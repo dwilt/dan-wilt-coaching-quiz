@@ -1,7 +1,7 @@
-import { setStateAction } from "./state.actions";
+import { setStateAction } from './state.actions';
 
-import { createReducer } from "src/helpers";
+import { createReducer } from 'src/helpers';
 
-export default createReducer(`quiz`, {
+export default createReducer('quiz', {
     [setStateAction().type]: (st, { state }) => state,
 });

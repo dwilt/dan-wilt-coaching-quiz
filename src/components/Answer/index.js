@@ -1,1 +1,1 @@
-export { default as Answer } from "./Answer.component";
+export { default as Answer } from './Answer.component';
