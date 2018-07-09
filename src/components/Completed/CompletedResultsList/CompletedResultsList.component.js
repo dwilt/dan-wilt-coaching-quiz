@@ -66,7 +66,9 @@ export default class CompletedResultsList extends PureComponent {
                                 }}
                             >
                                 <h2
-                                    className={'CompletedResultsList__question-title'}
+                                    className={
+                                        'CompletedResultsList__question-title'
+                                    }
                                 >
                                     <Question
                                         question={`${i + 1}\\. ${question}`}
@@ -77,7 +79,9 @@ export default class CompletedResultsList extends PureComponent {
                                 >
                                     {codeFigure && (
                                         <div
-                                            className={'CompletedResultsList__code-figure'}
+                                            className={
+                                                'CompletedResultsList__code-figure'
+                                            }
                                         >
                                             <CodeFigure
                                                 codeFigure={codeFigure}
@@ -85,14 +89,20 @@ export default class CompletedResultsList extends PureComponent {
                                         </div>
                                     )}
                                     <div
-                                        className={'CompletedResultsList__answers'}
+                                        className={
+                                            'CompletedResultsList__answers'
+                                        }
                                     >
                                         <div className={answersWrapperClasses}>
                                             <div
-                                                className={'CompletedResultsList__correct-answer'}
+                                                className={
+                                                    'CompletedResultsList__correct-answer'
+                                                }
                                             >
                                                 <p
-                                                    className={'CompletedResultsList__answer-title'}
+                                                    className={
+                                                        'CompletedResultsList__answer-title'
+                                                    }
                                                 >
                                                     Correct Answer
                                                 </p>
@@ -104,10 +114,14 @@ export default class CompletedResultsList extends PureComponent {
                                                 />
                                             </div>
                                             <div
-                                                className={'CompletedResultsList__your-answer'}
+                                                className={
+                                                    'CompletedResultsList__your-answer'
+                                                }
                                             >
                                                 <p
-                                                    className={'CompletedResultsList__answer-title'}
+                                                    className={
+                                                        'CompletedResultsList__answer-title'
+                                                    }
                                                 >
                                                     Your Answer
                                                 </p>
@@ -125,10 +139,14 @@ export default class CompletedResultsList extends PureComponent {
                                         </div>
                                         {!answeredCorrectly && (
                                             <div
-                                                className={'CompletedResultsList__feedback'}
+                                                className={
+                                                    'CompletedResultsList__feedback'
+                                                }
                                             >
                                                 <h3
-                                                    className={'CompletedResultsList__feedback-title'}
+                                                    className={
+                                                        'CompletedResultsList__feedback-title'
+                                                    }
                                                 >
                                                     Feedback
                                                 </h3>

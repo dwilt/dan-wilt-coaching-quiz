@@ -15,7 +15,9 @@ export default class SubscribeToMailingListCheckbox extends PureComponent {
             <Checkbox
                 {...this.props}
                 id={'mailing-list-checkbox'}
-                label={'Yes, I would like to receive periodic updates from Dan Wilt Coaching.'}
+                label={
+                    'Yes, I would like to receive periodic updates from Dan Wilt Coaching.'
+                }
             />
         );
     }

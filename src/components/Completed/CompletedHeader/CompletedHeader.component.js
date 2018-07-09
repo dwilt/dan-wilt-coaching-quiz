@@ -17,18 +17,95 @@ export default class CompletedHeader extends PureComponent {
 
         let subtitle = null;
         let feedback = null;
+        let text = null;
 
         const rating = getRating(score);
 
-        if (rating === ratings.EXPERT) {
-            subtitle = 'Perfect! You\'re ready to build mobile apps.';
-            feedback = 'With a score like that, you\'re a great candidate to pick up a tool like <a href="https://facebook.github.io/react-native/">React Native</a> and start building native applications.';
-        } else if (rating === ratings.PROFICIENT) {
-            subtitle = 'Good Job! You\'re proficient in Javascript.';
-            feedback = 'Although you didn\'t get a perfect score, you have a decent understanding of the language. With a bit of help, you\'d be well on your way to building out mobile applications with a tool like <a href="https://facebook.github.io/react-native/">React Native</a>.';
-        } else {
-            subtitle = 'You\'ve got a bit of learning to do before you\'re ready to build mobile apps';
-            feedback = 'Having a solid understanding of Javascript is essential to building mobile apps with a tool with a tool like <a href="https://facebook.github.io/react-native/">React Native</a>.';
+        switch (rating) {
+            case ratings.EXPERT: {
+                subtitle =
+                    'Perfect! You’re ready to start building mobile apps.';
+                text = (
+                    <div>
+                        <p>
+                            Based on your score, it looks like you’ve mastered
+                            the Javascript fundamentals necessary to dive right
+                            into learning to build native mobile applications.
+                        </p>
+                        <p>
+                            Be sure to check your inbox in a few minutes because
+                            I’m sending you some next steps you should take to
+                            get started right.
+                        </p>
+                        <p>
+                            For now, scroll down to review your results and
+                            click below to book a free 15-minute coaching
+                            session with me so I can provide personalized
+                            recommendations to help you start learning to
+                            develop mobile apps right away.
+                        </p>
+                    </div>
+                );
+                break;
+            }
+
+            case ratings.PROFICIENT: {
+                subtitle = 'Good Job! You’re proficient in Javascript.';
+                text = (
+                    <div>
+                        <p>
+                            Based on your score, it looks like you have a decent
+                            understanding of Javascript. With a bit of help,
+                            you’ll be ready to learn to build native mobile
+                            applications.
+                        </p>
+                        <p>
+                            Be sure to check your inbox in a few minutes because
+                            I’m sending you some next steps you can take to
+                            advance your Javascript skills and get started
+                            learning to build mobile apps.
+                        </p>
+                        <p>
+                            For now, scroll down to review your results and
+                            click below to book a free 15-minute coaching
+                            session with me so I can provide personalized
+                            recommendations to help you master Javascript
+                            fundamentals and start learning to develop mobile
+                            apps right away.
+                        </p>
+                    </div>
+                );
+                break;
+            }
+
+            default: {
+                subtitle =
+                    'You’ve got a bit of learning to do before you’re ready to build mobile apps';
+                text = (
+                    <div>
+                        <p>
+                            Based on your score, it looks like you’ll want to
+                            focus on mastering Javascript fundamentals before
+                            you start learning to build native mobile
+                            applications
+                        </p>
+                        <p>
+                            Be sure to check your inbox in a few minutes because
+                            I’m sending you a few next steps you can take to
+                            master the Javascript fundamentals necessary to
+                            start learning to build mobile apps.
+                        </p>
+                        <p>
+                            For now, scroll down to review your results and
+                            click below to book a free 15-minute coaching
+                            session with me so I can provide personalized
+                            recommendations to help you fast-track the process
+                            of mastering Javascript fundamentals.
+                        </p>
+                    </div>
+                );
+                break;
+            }
         }
 
         return (
@@ -39,15 +116,7 @@ export default class CompletedHeader extends PureComponent {
                     >{`Congratulations ${name}, you're finished!`}</h1>
                     <h2 className={'CompletedHeader__subtitle'}>{subtitle}</h2>
                     <p dangerouslySetInnerHTML={{ __html: feedback }} />
-                    <p>
-                        You can review your results below. If you want me to
-                        review your assessment results and provide completely
-                        personalized recommendations to make sure you get
-                        started right, click below to book a{' '}
-                        <strong>free 15-minute coaching session</strong>
-                        {' '}
-                        with me!
-                    </p>
+                    {text}
                     <a
                         href={'https://calendly.com/danwiltcoaching/15min'}
                         className={'CompletedHeader__schedule-call-button btn'}

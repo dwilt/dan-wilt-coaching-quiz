@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import {
     EmailCaptureEmailInput,
     EmailCaptureContinueButton,
-    SubscribeToMailingListCheckbox
+    SubscribeToMailingListCheckbox,
 } from 'src/components';
 
 import './EmailCapture.css';
@@ -23,7 +23,7 @@ export default class EmailCapture extends PureComponent {
                     </p>
                     <div className={'EmailCapture__form-wrapper'}>
                         <EmailCaptureEmailInput />
-                        <div className="EmailCapture__mailing-list">
+                        <div className={'EmailCapture__mailing-list'}>
                             <SubscribeToMailingListCheckbox />
                         </div>
                         <div className={'EmailCapture__continue-button'}>
