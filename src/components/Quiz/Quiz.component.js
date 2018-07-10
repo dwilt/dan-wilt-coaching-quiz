@@ -21,14 +21,14 @@ export default class Quiz extends PureComponent {
     };
 
     handleOnSubmit = (e) => {
-        const { onSubmit, quizComplete } = this.props;
+        const { onSubmit, quizComplete, history } = this.props;
 
         e.preventDefault();
 
         if (!quizComplete) {
             return false;
         } else {
-            onSubmit();
+            onSubmit(history);
         }
     };
 

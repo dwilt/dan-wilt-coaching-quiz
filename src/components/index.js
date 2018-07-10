@@ -1,7 +1,6 @@
 export * from './ActionButton';
 export * from './ActivityIndicator';
 export * from './Answer';
-export * from './App';
 export * from './Checkbox';
 export * from './CodeFigure';
 export * from './Completed';

@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import {
     NameCaptureNameInput,
     NameCaptureContinueButton,
-    SubscribeToMailingListCheckbox,
 } from 'src/components';
 
 import './NameCapture.css';

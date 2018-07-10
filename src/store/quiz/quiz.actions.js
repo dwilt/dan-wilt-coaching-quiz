@@ -1,4 +1,4 @@
-import { call, put, select, take } from 'redux-saga/effects';
+import { call, put, select, take, fork } from 'redux-saga/effects';
 
 import { version, questions } from 'src/questions';
 
@@ -63,8 +63,11 @@ export const submitNameAction = () => ({
     type: 'SUBMIT_NAME',
 });
 
-export const submitQuizAction = () => ({
+export const submitQuizAction = (history) => ({
     type: 'SUBMIT_QUIZ_ACTION',
+    payload: {
+        history,
+    },
 });
 
 function* addAnswer() {
@@ -113,6 +116,8 @@ export default function*() {
     yield put(setStateAction('question'));
 
     for (let i = 0; i < questions.length; i++) {
+        yield take(setSelectedAnswerAction().type);
+
         yield take(submitAnswerAction().type);
 
         yield* addAnswer();
@@ -120,7 +125,9 @@ export default function*() {
 
     yield put(setStateAction('emailCapture'));
 
-    yield take(submitQuizAction().type);
+    const { payload: { history } } = yield take(submitQuizAction().type);
 
-    yield* submitQuiz();
+    yield fork(submitQuiz);
+
+    yield call(history.push, '/completed');
 }

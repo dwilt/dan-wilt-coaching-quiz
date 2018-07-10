@@ -49,7 +49,7 @@ export default class CompletedResultsList extends PureComponent {
                     const answersWrapperClasses = classNames(
                         'CompletedResultsList__answers-wrapper',
                         {
-                            ['--no-grid']: !!codeFigure,
+                            '--no-grid': !!codeFigure,
                         }
                     );
 

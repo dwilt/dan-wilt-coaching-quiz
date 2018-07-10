@@ -50,11 +50,11 @@ export default class QuizQuestion extends PureComponent {
         const active = userAnswers.length + 1 === questionNumber;
 
         const questionClasses = classNames('QuizQuestion', {
-            ['visuallyhidden']: !active,
+            'visuallyhidden': !active,
         });
 
         const answerListClasses = classNames('QuizQuestion__answers-list', {
-            ['--grid']: answerType === 'code',
+            '--grid': answerType === 'code',
         });
 
         return (
