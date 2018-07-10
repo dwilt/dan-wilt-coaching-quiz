@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <Router basename={'/quiz'}>
-                <div>
+                <div className={'App'}>
                     <Switch>
                         <Route exact path={'/'} component={Quiz} />
                         <Route path={'/completed'} component={Completed} />
