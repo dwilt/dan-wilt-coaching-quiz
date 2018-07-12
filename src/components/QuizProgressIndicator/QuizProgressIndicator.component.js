@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
 
-import bg from './progress-indicator-bg.svg';
+import bg from '../../images/shield.svg';
 
 import './QuizProgressIndicator.css';
 

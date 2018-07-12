@@ -16,13 +16,6 @@ import { fireFetch } from 'src/services/firebase.service';
 
 import { getRating } from 'firebaseFunctions/services/scoring.service';
 
-export const setStateAction = (state) => ({
-    type: 'SET_QUIZ_STATE',
-    payload: {
-        state,
-    },
-});
-
 export const setSelectedAnswerAction = (selectedAnswer) => ({
     type: 'SET_QUIZ_SELECTED_ANSWER',
     payload: {
@@ -63,8 +56,15 @@ export const submitNameAction = () => ({
     type: 'SUBMIT_NAME',
 });
 
+export const startQuizAction = (history) => ({
+    type: 'START_QUIZ',
+    payload: {
+        history,
+    },
+});
+
 export const submitQuizAction = (history) => ({
-    type: 'SUBMIT_QUIZ_ACTION',
+    type: 'SUBMIT_QUIZ',
     payload: {
         history,
     },
@@ -111,9 +111,13 @@ function* submitQuiz() {
 }
 
 export default function*() {
+    const { payload: { history } } = yield take(startQuizAction().type);
+
+    yield call(history.push, '/name');
+
     yield take(submitNameAction().type);
 
-    yield put(setStateAction('question'));
+    yield call(history.push, '/questions');
 
     for (let i = 0; i < questions.length; i++) {
         yield take(setSelectedAnswerAction().type);
@@ -123,9 +127,9 @@ export default function*() {
         yield* addAnswer();
     }
 
-    yield put(setStateAction('emailCapture'));
+    yield call(history.push, '/email');
 
-    const { payload: { history } } = yield take(submitQuizAction().type);
+    yield take(submitQuizAction().type);
 
     yield fork(submitQuiz);
 

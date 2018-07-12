@@ -12,9 +12,9 @@ import { Question, Answer, CodeFigure } from 'src/components';
 
 import './CompletedResultsList.css';
 
-const greenCheckmark = require('./green-checkmark.svg');
+const greenCheckmark = require('../../../images/green-checkmark.svg');
 
-const redX = require('./red-x.svg');
+const redX = require('../../../images/red-x.svg');
 
 export default class CompletedResultsList extends PureComponent {
     static propTypes = {

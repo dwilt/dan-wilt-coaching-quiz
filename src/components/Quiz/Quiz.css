@@ -9,22 +9,6 @@
     }
 }
 
-.Quiz__title {
-    font-size: 2.4rem;
-    line-height: 1;
-    color: var(--very-dark-blue);
-    font-weight: 700;
-    padding: 35px 0;
-    margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-    .Quiz__title {
-        font-size: 2rem;
-        padding: 25px 0;
-    }
-}
-
 .Quiz__progress-indicator {
     position: absolute;
     top: 0;

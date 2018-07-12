@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import './Checkbox.css';
 
-const greenCheckmark = require('./check.svg');
+const greenCheckmark = require('../../images/check.svg');
 
 type CheckboxProps = {
     onChange: Function,

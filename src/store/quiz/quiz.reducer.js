@@ -1,5 +1,4 @@
 import {
-    setStateAction,
     setSelectedAnswerAction,
     addAnswerAction,
     setNameAction,
@@ -11,7 +10,6 @@ import { createReducer } from 'src/helpers';
 
 export default createReducer(
     {
-        state: 'nameCapture',
         selectedAnswer: null,
         answers: [],
         email: '',
@@ -19,10 +17,6 @@ export default createReducer(
         subscribedToMailingList: false,
     },
     {
-        [setStateAction().type]: (st, { state }) => ({
-            ...st,
-            state,
-        }),
         [setSelectedAnswerAction().type]: (st, { selectedAnswer }) => ({
             ...st,
             selectedAnswer,
