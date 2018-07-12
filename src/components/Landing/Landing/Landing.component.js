@@ -12,20 +12,23 @@ export default class Landing extends React.PureComponent {
                     <h1 className={'Landing__title'}>
                         Do You Have What It Takes To Develop Mobile Apps?
                     </h1>
-                    <p>
-                        Note: This assessment is for developers who already have
-                        a basic understanding of HTML, CSS and Javascript. To
-                        get the most accurate results, use your current
-                        knowledge and skills to answer each question to the best
-                        of your ability, and avoid looking things up online.
-                    </p>
-                    <p>
-                        Don't worry about getting every answer correct. The
-                        questions range in subject matter and difficulty to
-                        accurately assess your readiness to successfully learn
-                        mobile app development and determine the right next
-                        steps for you should take to get started.
-                    </p>
+                    <div className={'Landing__notes'}>
+                        <p>
+                            Note: This assessment is for developers who already
+                            have a basic understanding of HTML, CSS and
+                            Javascript. To get the most accurate results, use
+                            your current knowledge and skills to answer each
+                            question to the best of your ability, and avoid
+                            looking things up online.
+                        </p>
+                        <p>
+                            Don't worry about getting every answer correct. The
+                            questions range in subject matter and difficulty to
+                            accurately assess your readiness to successfully
+                            learn mobile app development and determine the right
+                            next steps for you should take to get started.
+                        </p>
+                    </div>
                     <div className={'Landing__start-button'}>
                         <LandingGetStartedButton />
                     </div>

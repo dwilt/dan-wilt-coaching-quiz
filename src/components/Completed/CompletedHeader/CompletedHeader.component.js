@@ -16,7 +16,6 @@ export default class CompletedHeader extends PureComponent {
         const { name, score } = this.props;
 
         let subtitle = null;
-        let feedback = null;
         let text = null;
 
         const rating = getRating(score);
@@ -115,8 +114,7 @@ export default class CompletedHeader extends PureComponent {
                         className={'CompletedHeader__title'}
                     >{`Congratulations ${name}, you're finished!`}</h1>
                     <h2 className={'CompletedHeader__subtitle'}>{subtitle}</h2>
-                    <p dangerouslySetInnerHTML={{ __html: feedback }} />
-                    {text}
+                    <div className={'CompletedHeader__feedback'}>{text}</div>
                     <a
                         href={'https://calendly.com/danwiltcoaching/15min'}
                         className={'CompletedHeader__schedule-call-button btn'}
